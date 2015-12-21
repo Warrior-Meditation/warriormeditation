@@ -1,7 +1,7 @@
 # warriormeditation
 
 ## User Stories
-1. As a vet, I want a mobile accessible play button that launches a guided meditation
+X1. As a vet, I want a mobile accessible play button that launches a guided meditation
 2. As a vet, I want descriptive text that gives me background information on the type of meditation
 3. As a site owner, I would like content to be delivered in a secular format so as not to disenfranchise any users based on belief systems.
 4. As a vet, I would like a variety of meditation styles in order to find one that suits my needs.

@@ -8,8 +8,6 @@ function User(props) {
 
 User.createUser = function (event) {
   event.preventDefault();
-  console.log($('#formEmail').val());
-  console.log($('#formPassword').val());
   ref.createUser({
     email    : $('#formEmail').val(),
     password : $('#formPassword').val()
@@ -20,13 +18,22 @@ User.createUser = function (event) {
       console.log('Successfully created user account with uid:', userData.uid);
       var fullName = $('#formName').val();
       var email = $('#formEmail').val();
-      console.log(userData);
-
       ref.child('users').child(userData.uid).set({
         name: fullName,
         email: email
       });
 
+      ref.authWithPassword({
+        email    : $('#formEmail').val(),
+        password : $('#formPassword').val()
+      }, function(error, authData) {
+        if (error) {
+          console.log('Login Failed!', error);
+        } else {
+          console.log('Authenticated successfully with payload:', authData);
+          console.log(authData);
+        }
+      });
     }
   });
 };

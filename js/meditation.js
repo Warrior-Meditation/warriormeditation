@@ -1,10 +1,23 @@
-SC.initialize({
-  client_id: '9586854c0f0c9138735b653b994f0fb5'
-});
+var Meditation = function(opts) {
+  this.title = opts.title;
+  this.description = opts.description;
+  this.soundUrl = opts.soundUrl;
+};
 
-var track_url = 'https://soundcloud.com/david-swaintek/dragons-versus-robots';
+Meditation.allMeditations = [];
 
-SC.oEmbed(track_url, { auto_play: false, element: document.getElementById('player') })
-.then(function(oEmbed) {
-  console.log('oEmbed response: ', oEmbed);
-});
+Meditation.getJSON = function(callback) {
+  $.getJSON('/js/data.json', function(data) {
+    console.log(data);
+    data.forEach(function(e) {
+      var meditation = new Meditation(e);
+      Meditation.allMeditations.push(meditation);
+    });
+    callback();
+  });
+};
+
+//instantiate current meditation
+//render current meditation
+
+//Soundcloud functionality

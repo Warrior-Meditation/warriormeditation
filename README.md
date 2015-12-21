@@ -14,3 +14,11 @@
 5. As a developer, I would like to use Bootstrap for a slick and consistent mobile-first experience.
 6. As a site owner, I would like to encourage further exploration through a resources page.
 7. As a site owner, I would like to give visibility to the dev team and our mission on an about page.
+
+## Potential Practices
+1. Nada Yoga
+- Feed Your Demons
+- Yoga Nidra (body scan)
+- Basic Vipassana
+- Noting practice
+- TM (in resources) — Jerry Seinfeld

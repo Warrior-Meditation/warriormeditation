@@ -15,7 +15,8 @@
 
 ## Potential Practices
 1. Nada Yoga
-2. Yoga Nidra (body scan)
-3. Basic Vipassana
-4. Noting practice
-5. TM (in resources) — Jerry Seinfeld
+- Feed Your Demons
+- Yoga Nidra (body scan)
+- Basic Vipassana
+- Noting practice
+- TM (in resources) — Jerry Seinfeld

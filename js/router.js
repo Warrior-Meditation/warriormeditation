@@ -7,7 +7,13 @@ page(
   meditationController.fetch,
   meditationController.init
 );
-// page(
-//   '/'
-// )
+page(
+  '/journal/new',
+  journalController.initEditor
+);
+page(
+  '/journal/archive',
+  journalController.template,
+  journalController.getEntries
+);
 page.start();

@@ -25,9 +25,13 @@
         <button type='button'>Accept the Mission</button>
         <button type='button'>Log in to Track Your Progress</button>
       </section>
-      <section id="meditation-content"></section>
-      <section id="journal-content">
-        <p>this is journal content</p>
+      <section id="meditation-content">
+      </section>
+      <section id="journal-editor-content">
+        <p>this is a new journal content</p>
+      </section>
+      <section id="journal-archive-content">
+        <p>this is journal archive</p>
       </section>
       <section id="about-content">
         <p>this is about content</p>
@@ -44,11 +48,19 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
     <script type="text/javascript" src="/js/vendor/page.js"></script>
+    <!-- CONTROLLER SCRIPTS -->
     <script type="text/javascript" src="/js/indexController.js"></script>
-    <script type="text/javascript" src="/js/indexView.js"></script>
-    <script type="text/javascript" src="/js/meditation.js"></script>
     <script type="text/javascript" src="/js/meditationController.js"></script>
+    <script type="text/javascript" src="/js/journalController.js"></script>
+    <!-- VIEW SCRIPTS -->
+    <script type="text/javascript" src="/js/indexView.js"></script>
     <script type="text/javascript" src="/js/meditationView.js"></script>
+    <script type="text/javascript" src="/js/archiveView.js"></script>
+    <script type="text/javascript" src="/js/editorView.js"></script>
+    <!-- MODEL SCRIPTS -->
+    <script type="text/javascript" src="/js/meditation.js"></script>
+    <script type="text/javascript" src="/js/journal.js"></script>
+    <!-- ROUTER -->
     <script type="text/javascript" src="/js/router.js"></script>
   </body>
 </html>

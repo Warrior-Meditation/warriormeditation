@@ -1,6 +1,6 @@
 page(
   '/',
-  indexController.index
+  indexController.init
 );
 page(
   '/meditation',

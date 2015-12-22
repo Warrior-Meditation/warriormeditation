@@ -8,7 +8,6 @@ Meditation.allMeditations = [];
 
 Meditation.getJSON = function(callback) {
   $.getJSON('/js/data.json', function(data) {
-    console.log(data);
     data.forEach(function(e) {
       var meditation = new Meditation(e);
       Meditation.allMeditations.push(meditation);
@@ -16,8 +15,3 @@ Meditation.getJSON = function(callback) {
     callback();
   });
 };
-
-//instantiate current meditation
-//render current meditation
-
-//Soundcloud functionality

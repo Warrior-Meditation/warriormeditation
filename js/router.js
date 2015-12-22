@@ -7,4 +7,7 @@ page(
   meditationController.template,
   meditationController.init
 );
+page(
+  '/'
+)
 page.start();

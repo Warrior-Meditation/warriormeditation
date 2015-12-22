@@ -5,6 +5,5 @@ meditationController.fetch = function(ctx, next) {
 };
 
 meditationController.init = function(ctx, next) {
-  console.log('hello');
   Meditation.match(ctx, meditationView.init);
 };

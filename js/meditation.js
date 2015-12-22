@@ -7,11 +7,27 @@ var Meditation = function(opts) {
 Meditation.allMeditations = [];
 
 Meditation.getJSON = function(callback) {
-  $.getJSON('/js/data.json', function(data) {
-    data.forEach(function(e) {
-      var meditation = new Meditation(e);
-      Meditation.allMeditations.push(meditation);
-    });
+  if (Meditation.allMeditations.length) {
     callback();
+  } else {
+    $.getJSON('/js/data.json', function(data) {
+      data.forEach(function(e) {
+        var meditation = new Meditation(e);
+        Meditation.allMeditations.push(meditation);
+      });
+      callback();
+    });
+  }
+};
+
+Meditation.match = function(ctx, callback) {
+  var data = ctx.params.meditation;
+  var meditation;
+  Meditation.allMeditations.forEach(function(e) {
+    console.log(e.title);
+    if (e.title == data) {
+      meditation = e;
+    }
   });
+  callback(meditation);
 };

@@ -1,16 +1,10 @@
 var meditationController = {};
 
-meditationController.init = function() {
-  Meditation.getJSON(meditationView.init);
+meditationController.fetch = function(ctx, next) {
+  Meditation.getJSON(next);
 };
 
-meditationController.template = function(ctx, next) {
-  if (meditationView.template) {
-    next();
-  } else {
-    $.get('/templates/meditation.html', function (data, msg, xhr) {
-      meditationView.template = Handlebars.compile(data);
-      next();
-    });
-  }
+meditationController.init = function(ctx, next) {
+  console.log('hello');
+  Meditation.match(ctx, meditationView.init);
 };

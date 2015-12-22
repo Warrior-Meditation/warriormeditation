@@ -3,11 +3,11 @@ page(
   indexController.init
 );
 page(
-  '/meditation',
-  meditationController.template,
+  '/meditation/:meditation',
+  meditationController.fetch,
   meditationController.init
 );
-page(
-  '/'
-)
+// page(
+//   '/'
+// )
 page.start();

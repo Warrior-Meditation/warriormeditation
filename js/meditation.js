@@ -1,46 +1,17 @@
-SC.initialize({
-  client_id: '9586854c0f0c9138735b653b994f0fb5'
-});
+var Meditation = function(opts) {
+  this.title = opts.title;
+  this.description = opts.description;
+  this.soundUrl = opts.soundUrl;
+};
 
-var currentTrack = SC.get('/tracks/238687124');
+Meditation.allMeditations = [];
 
-SC.stream('/tracks/238687124').then(function(player) {
-  $('#start').on('click', function () {
-    console.log('start');
-    console.log(player);
-    player.play();
+Meditation.getJSON = function(callback) {
+  $.getJSON('/js/data.json', function(data) {
+    data.forEach(function(e) {
+      var meditation = new Meditation(e);
+      Meditation.allMeditations.push(meditation);
+    });
+    callback();
   });
-
-  $('#stop').on('click', function () {
-    console.log('stop');
-    timeCounter = player.currentTime();
-    console.log(timeCounter);
-    player.pause();
-  });
-
-  player.on('finish', function () {
-    timeCounter = currentTrack._result.duration;
-    console.log(timeCounter);
-    console.log('finish');
-  });
-});
-
-//   // SC.stream(currentTrack, function(sound){
-//     $('#start').click(function(e) {
-//       e.preventDefault();
-//       console.log('start');
-//       sound.start();
-//     });
-//     $('#stop').click(function(e) {
-//       e.preventDefault();
-//       console.log('stop');
-//       sound.stop();
-//     });
-//   });
-// // });
-
-
-
-// /tracks/181282422
-
-// client_id: '9586854c0f0c9138735b653b994f0fb5'
+};

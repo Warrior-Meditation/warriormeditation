@@ -1,0 +1,13 @@
+page(
+  '/',
+  indexController.init
+);
+page(
+  '/meditation',
+  meditationController.template,
+  meditationController.init
+);
+page(
+  '/'
+)
+page.start();

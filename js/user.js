@@ -1,6 +1,7 @@
 function User(props) {
-  this.fullName = props.fullName;
-  this.emailAddress = props.emailAddress;
+  this.name = props.name;
+  this.uid = props.uid;
+  this.email = props.email;
   this.timeMeditated = props.timeMeditated;
   this.meditationData = props.meditationData;
   this.lastMeditated = props.lastMeditated;

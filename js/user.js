@@ -38,6 +38,7 @@ User.createUser = function (event) {
     password : userPassword
   }, function(error, userData) {
     if (error) {
+      alert(error);
       console.log('Error creating user:', error);
     } else {
       console.log('Successfully created user account with uid:', userData.uid);
@@ -65,17 +66,6 @@ User.authenticate = function (userPassword) {
       var uid = authData.uid;
       console.log(uid);
       User.existence(uid);
-      // console.log('User exists before method? ' + User.exists);
-      // // User.existence(uid);
-      // console.log('User exists after method? ' + User.exists);
-      // if (User.exists) {
-      //   console.log('Do not create record');
-      // }
-      // else {
-      //   console.log('Create record');
-      //   User.createUserRecord(uid, User.fullName, User.email);
-      //   console.log('Created record');
-      // }
     }
   });
 };
@@ -88,6 +78,6 @@ User.createUserRecord = function(uid) {
   });
 };
 
-
+//router should call these
 $('#createAccount').submit(User.createUser);
 $('#loginAccount').submit(User.authUser);

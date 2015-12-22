@@ -1,3 +1,5 @@
+var ref = new Firebase('https://warrior-meditation.firebaseio.com');
+
 function User(props) {
   this.name = props.name;
   this.uid = props.uid;
@@ -8,44 +10,84 @@ function User(props) {
   this.consecDays = props.consecDays;
 };
 
-User.authenticate = function (userEmail, userPassword) {
-  ref.authWithPassword({
-    email    : userEmail,
-    password : userPassword
-  }, function(error, authData) {
-    if (error) {
-      console.log('Login Failed!', error);
-    } else {
-      console.log('Authenticated successfully with payload:', authData);
+User.exists = false;
+User.fullname = '';
+User.email = '';
+
+User.existence = function (uid) {
+  ref.once('value', function(snapshot) {
+    var snap = snapshot.child('users').child(uid);
+    User.exists = snap.exists();
+    if (User.exists) {
+      console.log('User record exists; don\'t create');
+      return;
+    }
+    else {
+      User.createUserRecord(uid);
     }
   });
 };
 
-User.authUser = function (event) {
-  event.preventDefault();
-  var userEmail = $('#loginEmail').val();
-  var userPassword = $('#loginPassword').val();
-  User.authenticate(userEmail, userPassword);
-};
-
 User.createUser = function (event) {
   event.preventDefault();
-  var fullName = $('#formName').val();
-  var userEmail = $('#formEmail').val();
+  User.fullName = $('#formName').val();
+  User.email = $('#formEmail').val();
   var userPassword = $('#formPassword').val();
   ref.createUser({
-    email    : userEmail,
+    email    : User.email,
     password : userPassword
   }, function(error, userData) {
     if (error) {
       console.log('Error creating user:', error);
     } else {
       console.log('Successfully created user account with uid:', userData.uid);
-      ref.child('users').child(userData.uid).set({
-        name: fullName,
-        email: userEmail
-      });
-      User.authenticate(userEmail, userPassword);
+      User.authenticate(userPassword);
     }
   });
 };
+
+User.authUser = function (event) {
+  event.preventDefault();
+  User.email = $('#loginEmail').val();
+  var userPassword = $('#loginPassword').val();
+  User.authenticate(userPassword);
+};
+
+User.authenticate = function (userPassword) {
+  ref.authWithPassword({
+    email    : User.email,
+    password : userPassword
+  }, function(error, authData) {
+    if (error) {
+      console.log('Login Failed!', error);
+    } else {
+      console.log('Authenticated successfully with payload:', authData);
+      var uid = authData.uid;
+      console.log(uid);
+      User.existence(uid);
+      // console.log('User exists before method? ' + User.exists);
+      // // User.existence(uid);
+      // console.log('User exists after method? ' + User.exists);
+      // if (User.exists) {
+      //   console.log('Do not create record');
+      // }
+      // else {
+      //   console.log('Create record');
+      //   User.createUserRecord(uid, User.fullName, User.email);
+      //   console.log('Created record');
+      // }
+    }
+  });
+};
+
+User.createUserRecord = function(uid) {
+  console.log('creating record');
+  ref.child('users').child(uid).set({
+    name: User.fullName,
+    email: User.email
+  });
+};
+
+
+$('#createAccount').submit(User.createUser);
+$('#loginAccount').submit(User.authUser);

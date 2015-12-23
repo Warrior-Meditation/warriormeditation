@@ -1,18 +1,15 @@
 var ref = new Firebase('https://warrior-meditation.firebaseio.com');
 
-function User(props) {
-  this.name = props.name;
-  this.uid = props.uid;
-  this.email = props.email;
-  this.timeMeditated = props.timeMeditated;
-  this.meditationData = props.meditationData;
-  this.lastMeditated = props.lastMeditated;
-  this.consecDays = props.consecDays;
-};
-
+var User = {};
+User.uid = '';
 User.exists = false;
-User.fullname = '';
+User.name = '';
 User.email = '';
+User.lastMeditated = '';
+User.ttlTimeMeditated = 0;
+User.mostConsecDays = 0;
+User.currConsecDays = 0;
+
 
 User.existence = function (uid) {
   ref.once('value', function(snapshot) {
@@ -20,6 +17,14 @@ User.existence = function (uid) {
     User.exists = snap.exists();
     if (User.exists) {
       console.log('User record exists; don\'t create');
+      console.log(snap.val());
+      snapObj = snap.val();
+      var keys = Object.keys(snapObj);
+      keys.forEach(function(el){
+        User[el] = snapObj[el];
+      });
+      console.log(User);
+
       return;
     }
     else {
@@ -30,7 +35,7 @@ User.existence = function (uid) {
 
 User.createUser = function (event) {
   event.preventDefault();
-  User.fullName = $('#formName').val();
+  User.name = $('#formName').val();
   User.email = $('#formEmail').val();
   var userPassword = $('#formPassword').val();
   ref.createUser({
@@ -64,6 +69,7 @@ User.authenticate = function (userPassword) {
     } else {
       console.log('Authenticated successfully with payload:', authData);
       var uid = authData.uid;
+      User.uid = uid;
       console.log(uid);
       User.existence(uid);
     }
@@ -72,9 +78,18 @@ User.authenticate = function (userPassword) {
 
 User.createUserRecord = function(uid) {
   console.log('creating record');
+  User.uid = uid;
+  userString = JSON.stringify(User);
+  console.log(User);
+  console.log(userString);
   ref.child('users').child(uid).set({
-    name: User.fullName,
-    email: User.email
+    uid: User.uid,
+    name:  User.name,
+    email: User.email,
+    lastMeditated: User.lastMeditated,
+    ttlTimeMeditated: User.ttlTimeMeditated,
+    mostConsecDays: User.mostConsecDays,
+    currConsecDays: User.currConsecDays
   });
 };
 

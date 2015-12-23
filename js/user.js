@@ -17,13 +17,11 @@ User.alreadyAuthed = function() {
   if (authData) {
     console.log('User already authenticated with uid:', authData.uid);
     User.uid = authData.uid;
-    $('#auth-status').text('Logout').removeClass('login').addClass('logout');
-    $('.logout').on('click', User.logout);
+    User.setLogout();
     User.recordExists();
   }
   else {
-    $('#auth-status').text('Login').removeClass('logout').addClass('login');
-    // $('.login').on('click', User.login);
+    User.setLogin();
   }
 };
 
@@ -63,8 +61,7 @@ User.authenticate = function (userPassword) {
     } else {
       console.log('Authenticated successfully with payload:', authData);
       User.uid = authData.uid;
-      $('#auth-status').text('Logout').removeClass('login').addClass('logout');
-      $('.logout').on('click', User.logout);
+      User.setLogout();
       User.recordExists();
     }
   });
@@ -102,11 +99,28 @@ User.createUserRecord = function() {
   });
 };
 
+User.setLogin = function(){
+  $('#auth-status').text('Login').removeClass('logout').addClass('login');
+  $('.login').on('click', User.login);
+};
+
+User.setLogout = function(){
+  $('#auth-status').text('Logout').removeClass('login').addClass('logout');
+  $('.logout').on('click', User.logout);
+};
+
+User.login = function(event){
+  event.preventDefault();
+  console.log('Take the user to login screen');
+  User.setLogin();
+};
+
 User.logout = function(event){
   event.preventDefault();
   console.log('Logging out user!');
   firebase.unauth();
-  User.alreadyAuthed;
+  User.setLogin();  //Not necessary due to User.alreadyAuthed?
+  // User.alreadyAuthed;
 };
 
 //router should call these

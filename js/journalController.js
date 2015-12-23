@@ -1,7 +1,7 @@
 var journalController = {};
 
 journalController.initEditor = function() {
-
+  editorView.init();
 };
 
 journalController.getEntries = function() {

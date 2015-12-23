@@ -3,6 +3,18 @@
     "title": "Test Journal",
     "category": "Vipassana",
     "body": "I thought a lot.",
-    "publishedOn": "2015-12-22"
+    "publishedOn": "Wed Dec 23 2015 10:34:13 GMT-0800 (PST)",
+  },
+  {
+    "title": "Test Journal2",
+    "category": "Vipassana",
+    "body": "I thought more.",
+    "publishedOn": "Wed Dec 23 2015 10:34:14 GMT-0800 (PST)",
+  },
+  {
+    "title": "Test Journal3",
+    "category": "Vipassana",
+    "body": "I thought a lot more.",
+    "publishedOn": "Wed Dec 23 2015 10:34:15 GMT-0800 (PST)",
   }
 ]

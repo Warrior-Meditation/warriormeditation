@@ -27,11 +27,19 @@ meditationView.player = function(url) {
     client_id: '9586854c0f0c9138735b653b994f0fb5'
   });
 
+  var url = '/tracks/238687124';
   var currentTrack = SC.get(url);
+
+  var timeCounter;
+  var mostRecentDay;
+  var totalTime;
 
   SC.stream(url).then(function(player) {
     $('#start').on('click', function (e) {
       e.preventDefault();
+      //Kick out date
+      mostRecentDay = new Date().toISOString().slice(0,10);
+      console.log(mostRecentDay);
       console.log('start');
       console.log(player);
       player.play();
@@ -41,17 +49,26 @@ meditationView.player = function(url) {
       e.preventDefault();
       console.log('stop');
       timeCounter = player.currentTime();
+      //kick out elapsed time
       console.log(timeCounter);
       player.pause();
     });
 
     player.on('finish', function () {
       timeCounter = currentTrack._result.duration;
+      //kick out elapsed time
       console.log(timeCounter);
       console.log('finish');
       $('#feedback').fadeIn(1000);
     });
   });
+};
+
+meditationScoring = function() {
+  $('#total-days').text(User.ttlDays);
+  $('#total-time').text(Math.floor(User.ttlTime/3600000));
+  $('#current-consecutive-days').text(User.currConsecDays);
+  $('#highest-consecutive-days').text(User.mostConsecDays);
 };
 
 meditationView.handleFeedback = function() {

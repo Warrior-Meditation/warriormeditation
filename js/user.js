@@ -1,39 +1,36 @@
-var ref = new Firebase('https://warrior-meditation.firebaseio.com');
+var firebase = new Firebase('https://warrior-meditation.firebaseio.com');
 
-function User(props) {
-  this.name = props.name;
-  this.uid = props.uid;
-  this.email = props.email;
-  this.timeMeditated = props.timeMeditated;
-  this.meditationData = props.meditationData;
-  this.lastMeditated = props.lastMeditated;
-  this.consecDays = props.consecDays;
-};
-
+var User = {};
+User.uid = '';
 User.exists = false;
-User.fullname = '';
+User.name = '';
 User.email = '';
+User.allJournals = [];
+User.lastDay = '';
+User.ttlTime = 0;
+User.ttlDays = 0;
+User.mostConsecDays = 0;
+User.currConsecDays = 0;
 
-User.existence = function (uid) {
-  ref.once('value', function(snapshot) {
-    var snap = snapshot.child('users').child(uid);
-    User.exists = snap.exists();
-    if (User.exists) {
-      console.log('User record exists; don\'t create');
-      return;
-    }
-    else {
-      User.createUserRecord(uid);
-    }
-  });
+User.alreadyAuthed = function() {
+  var authData = firebase.getAuth();
+  if (authData) {
+    console.log('User already authenticated with uid:', authData.uid);
+    User.uid = authData.uid;
+    User.setLogout();
+    User.recordExists();
+  }
+  else {
+    User.setLogin();
+  }
 };
 
 User.createUser = function (event) {
   event.preventDefault();
-  User.fullName = $('#formName').val();
+  User.name = $('#formName').val();
   User.email = $('#formEmail').val();
   var userPassword = $('#formPassword').val();
-  ref.createUser({
+  firebase.createUser({
     email    : User.email,
     password : userPassword
   }, function(error, userData) {
@@ -55,7 +52,7 @@ User.authUser = function (event) {
 };
 
 User.authenticate = function (userPassword) {
-  ref.authWithPassword({
+  firebase.authWithPassword({
     email    : User.email,
     password : userPassword
   }, function(error, authData) {
@@ -63,21 +60,75 @@ User.authenticate = function (userPassword) {
       console.log('Login Failed!', error);
     } else {
       console.log('Authenticated successfully with payload:', authData);
-      var uid = authData.uid;
-      console.log(uid);
-      User.existence(uid);
+      User.uid = authData.uid;
+      User.setLogout();
+      User.recordExists();
     }
   });
 };
 
-User.createUserRecord = function(uid) {
-  console.log('creating record');
-  ref.child('users').child(uid).set({
-    name: User.fullName,
-    email: User.email
+User.recordExists = function () {
+  firebase.child('users').child(User.uid).once('value', function(snapshot) {
+    var snap = snapshot;
+    User.exists = snap.exists();
+    if (User.exists) {
+      console.log('User record exists; don\'t create');
+      snapObj = snap.val();
+      var keys = Object.keys(snapObj);
+      keys.forEach(function(el){
+        User[el] = snapObj[el];
+      });
+      User.allJournals = JSON.parse(User.journalsString);
+    }
+    else {
+      User.createUserRecord();
+    }
   });
+};
+
+User.createUserRecord = function() {
+  console.log('creating record');
+  firebase.child('users').child(uid).set({
+    uid: User.uid,
+    name:  User.name,
+    email: User.email,
+    lastDay: User.lastDay,
+    ttlTime: User.ttlTime,
+    mostConsecDays: User.mostConsecDays,
+    currConsecDays: User.currConsecDays
+  });
+};
+
+User.setLogin = function(){
+  $('#auth-status').text('Login').removeClass('logout').addClass('login');
+  $('.login').on('click', User.login);
+};
+
+User.setLogout = function(){
+  $('#auth-status').text('Logout').removeClass('login').addClass('logout');
+  $('.logout').on('click', User.logout);
+};
+
+User.login = function(event){
+  event.preventDefault();
+  console.log('Take the user to login screen');
+  User.setLogin();
+};
+
+User.logout = function(event){
+  event.preventDefault();
+  console.log('Logging out user!');
+  firebase.unauth();
+  User.setLogin();  //Not necessary due to User.alreadyAuthed?
+  // User.alreadyAuthed;
 };
 
 //router should call these
 $('#createAccount').submit(User.createUser);
 $('#loginAccount').submit(User.authUser);
+
+
+
+$(function() {
+  User.alreadyAuthed();  //Tests if user already authenticated
+});

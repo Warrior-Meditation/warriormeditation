@@ -1,4 +1,4 @@
-var indexController = {};
+var controller = {};
 
 //INDEX PAGE METHODS
 

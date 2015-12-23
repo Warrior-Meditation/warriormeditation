@@ -18,8 +18,8 @@ controller.meditationInit = function(ctx, next) {
 
 //JOURNAL METHODS
 
-controller.initEditor = function() {
-  editorView.init();
+controller.initEditor = function(ctx, next) {
+  editorView.init(ctx);
 };
 
 controller.getJournalEntries = function() {

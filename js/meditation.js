@@ -21,11 +21,9 @@ Meditation.getJSON = function(callback) {
 };
 
 Meditation.match = function(ctx, callback) {
-  var data = ctx.params.meditation;
   var meditation;
   Meditation.allMeditations.forEach(function(e) {
-    console.log(e.title);
-    if (e.title == data) {
+    if (e.title == ctx.params.meditation) {
       meditation = e;
     }
   });

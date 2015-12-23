@@ -1,17 +1,25 @@
 var meditationView = {};
 
 meditationView.init = function(meditation) {
+  meditationView.render(meditation);
+  meditationView.handleFeedback();
+  meditationView.player(meditation.soundUrl);
+  $('#journal-link').attr('href', '/journal/new?category='+ meditation.title);
+};
+
+meditationView.render = function(meditation) {
   $('#meditation-content')
-    .empty()
     .show()
+    .siblings().hide();
+  $('#current-meditation')
+    .empty()
     .append([
       '<h1>' + meditation.title + '</h1>',
       '<p>' + meditation.description + '</p>',
       '<a href="" id="start">Start</a>',
       '<a href="" id="stop">Stop</a>'
-    ])
-    .siblings().hide();
-  meditationView.player(meditation.soundUrl);
+    ]
+  );
 };
 
 meditationView.player = function(url) {
@@ -41,6 +49,13 @@ meditationView.player = function(url) {
       timeCounter = currentTrack._result.duration;
       console.log(timeCounter);
       console.log('finish');
+      $('#feedback').fadeIn(1000);
     });
+  });
+};
+
+meditationView.handleFeedback = function() {
+  $('#ok-button').on('click', function() {
+    $('#feedback').fadeOut(1000);
   });
 };

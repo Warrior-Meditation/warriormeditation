@@ -16,4 +16,12 @@ page(
   controller.journalTemplate,
   controller.getJournalEntries
 );
+page(
+  '/resources',
+  controller.resourcesInit
+);
+page(
+  '/about',
+  controller.aboutInit
+);
 page.start();

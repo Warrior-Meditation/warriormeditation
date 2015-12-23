@@ -5,7 +5,7 @@ archiveView.init = function() {
     .empty()
     .show()
     .siblings().hide();
-  Journal.allEntries.forEach(function(entry) {
+  User.allJournals.forEach(function(entry) {
     $('#journal-archive-content').append(archiveView.toHTML(entry));
   });
 };

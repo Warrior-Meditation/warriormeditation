@@ -12,26 +12,19 @@ User.ttlDays = 0;
 User.mostConsecDays = 0;
 User.currConsecDays = 0;
 
-User.existence = function (uid) {
-  firebase.child('users').child(uid).once('value', function(snapshot) {
-    var snap = snapshot;
-    User.exists = snap.exists();
-    if (User.exists) {
-      console.log('User record exists; don\'t create');
-      console.log(snap.val());
-      snapObj = snap.val();
-      var keys = Object.keys(snapObj);
-      keys.forEach(function(el){
-        User[el] = snapObj[el];
-        console.log(User[el] + ' = ' + snapObj[el]);
-      });
-      User.allJournals = JSON.parse(User.journalsString);
-      return;
-    }
-    else {
-      User.createUserRecord(uid);
-    }
-  });
+User.alreadyAuthed = function() {
+  var authData = firebase.getAuth();
+  if (authData) {
+    console.log('User already authenticated with uid:', authData.uid);
+    User.uid = authData.uid;
+    $('#auth-status').text('Logout').removeClass('login').addClass('logout');
+    $('.logout').on('click', User.logout);
+    User.recordExists();
+  }
+  else {
+    $('#auth-status').text('Login').removeClass('logout').addClass('login');
+    // $('.login').on('click', User.login);
+  }
 };
 
 User.createUser = function (event) {
@@ -69,18 +62,35 @@ User.authenticate = function (userPassword) {
       console.log('Login Failed!', error);
     } else {
       console.log('Authenticated successfully with payload:', authData);
-      var uid = authData.uid;
-      User.uid = uid;
-      User.existence(uid);
+      User.uid = authData.uid;
+      $('#auth-status').text('Logout').removeClass('login').addClass('logout');
+      $('.logout').on('click', User.logout);
+      User.recordExists();
     }
   });
 };
 
-User.createUserRecord = function(uid) {
+User.recordExists = function () {
+  firebase.child('users').child(User.uid).once('value', function(snapshot) {
+    var snap = snapshot;
+    User.exists = snap.exists();
+    if (User.exists) {
+      console.log('User record exists; don\'t create');
+      snapObj = snap.val();
+      var keys = Object.keys(snapObj);
+      keys.forEach(function(el){
+        User[el] = snapObj[el];
+      });
+      User.allJournals = JSON.parse(User.journalsString);
+    }
+    else {
+      User.createUserRecord();
+    }
+  });
+};
+
+User.createUserRecord = function() {
   console.log('creating record');
-  User.uid = uid;
-  console.log(User);
-  console.log(userString);
   firebase.child('users').child(uid).set({
     uid: User.uid,
     name:  User.name,
@@ -92,6 +102,19 @@ User.createUserRecord = function(uid) {
   });
 };
 
+User.logout = function(event){
+  event.preventDefault();
+  console.log('Logging out user!');
+  firebase.unauth();
+  User.alreadyAuthed;
+};
+
 //router should call these
 $('#createAccount').submit(User.createUser);
 $('#loginAccount').submit(User.authUser);
+
+
+
+$(function() {
+  User.alreadyAuthed();  //Tests if user already authenticated
+});

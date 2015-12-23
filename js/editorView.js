@@ -12,7 +12,8 @@ editorView.capture = function() {
   .on('submit', function(event) {
     event.preventDefault();
     var newEntry = editorView.create();
-    Journal.allEntries.push(newEntry);
+    User.allJournals.push(newEntry);
+    Journal.storeJournals();
   });
 };
 

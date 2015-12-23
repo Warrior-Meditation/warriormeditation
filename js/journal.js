@@ -5,10 +5,8 @@ var Journal = function(props) {
   this.publishedOn = props.publishedOn;
 };
 
-Journal.allEntries = [];
-
 Journal.getJSON = function(callback) {
-  if (Journal.allEntries.length) {
+  if (User.allJournals.length) {
     callback();
   } else {
     $.getJSON('/js/journalEntries.json', function(data) {
@@ -17,7 +15,7 @@ Journal.getJSON = function(callback) {
       data.forEach(function(e) {
         // firebase.child('users').child(User.uid).child('journals').push(e);
         var journal = new Journal(e);
-        Journal.allEntries.push(journal);
+        User.allJournals.push(journal);
       });
       // callback();
     });

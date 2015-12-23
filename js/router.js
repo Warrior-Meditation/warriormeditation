@@ -1,19 +1,19 @@
 page(
   '/',
-  indexController.init
+  controller.indexInit
 );
 page(
   '/meditation/:meditation',
-  meditationController.fetch,
-  meditationController.init
+  controller.fetchMeditations,
+  controller.meditationInit
 );
 page(
   '/journal/new',
-  journalController.initEditor
+  controller.initEditor
 );
 page(
   '/journal/archive',
-  journalController.template,
-  journalController.getEntries
+  controller.journalTemplate,
+  controller.getJournalEntries
 );
 page.start();

@@ -7,34 +7,75 @@
     <title>Warrior Meditation</title>
     <link rel="stylesheet" href="/bootstrap/docs/dist/css/bootstrap.css">
     <link href="/css/cover.css" rel="stylesheet">
-    <link href="/css/style.css" rel="stylesheet">
   </head>
   <body>
-    <header>
-      <nav class="masthead-nav, nav">
-        <img id="logo" src="" alt="logo" />
-        <h1>Warrior Meditation</h1>
-        <ul>
-          <a href="/"><li>Home</li></a>
-          <a href="/journal/new"><li>New Journal Entry</li></a>
-          <a href="/journal/archive"><li>Journal Archive</li></a>
-          <a href="resources.html"><li>Resources</li></a>
-          <a href="about.html"><li>About</li></a>
-        </ul>
-        <div id="hamburger"></div>
-      </nav>
-    </header>
-    <main>
-      <section id="index-content">
-        <h1>Warrior Meditation</h1>
-        <h2>Reasons to Meditate</h2>
-        <ul>
-          <a href="/meditation/Nada"><li>Stay calm</li></a>
-          <li>Etc.</li>
-        </ul>
-        <button type='button'>Accept the Mission</button>
-        <button type='button'>Log in to Track Your Progress</button>
-      </section>
+    <div class="site-wrapper">
+
+      <div class="site-wrapper-inner">
+
+        <div class="cover-container">
+
+          <div class="masthead clearfix">
+            <div class="inner">
+              <h3 class="masthead-brand">Warrior Meditation</h3>
+              <nav>
+                <ul class="nav masthead-nav">
+                  <li><a class="active" href="/">Home</a></li>
+                  <li><a href="/journal/new">New Journal Entry</a></li>
+                  <li><a href="/journal/archive">Journal Archive</a></li>
+                  <li><a href="resources.html">Resources</a></li>
+                  <li><a href="about.html">About</a></li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+
+          <div class="inner cover">
+            <h1 class="cover-heading">Reasons To Meditate</h1>
+            <p class="lead">Control your mind</p>
+            <p class="lead">
+              <a href="#" class="btn btn-lg btn-default">Stay Calm</a>
+              <a href="#" class="btn btn-lg btn-default">Stay Calm</a>
+              <a href="#" class="btn btn-lg btn-default">Stay Calm</a>
+              <a href="#" class="btn btn-lg btn-default">Stay Calm</a>
+            </p>
+            <button type='button'>Accept the Mission</button>
+            <button type='button'>Log in to Track Your Progress</button>
+            <section id="meditation-content">
+            </section>
+            <section id="journal-editor-content">
+              <form id="journal-form">
+                <input id="edit-title" type="text" placeholder="title" required/>
+                <input id="edit-body" placeholder="body" required/>
+                <input type="submit"></input>
+              </form>
+            </section>
+            <section id="journal-archive-content">
+            </section>
+            <section id="about-content">
+              <p>this is about content</p>
+            </section>
+            <section id="resources-content">
+              <p>This is resources content</p>
+            </section>
+          </div>
+
+          <div class="mastfoot">
+            <div class="inner">
+              <p>Cover template for <a href="http://getbootstrap.com">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+
+
       <section id="meditation-content">
       </section>
       <section id="journal-editor-content">
@@ -52,15 +93,11 @@
       <section id="resources-content">
         <p>This is resources content</p>
       </section>
-    </main>
+    </main> -->
     <footer></footer>
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
     <script src="https://connect.soundcloud.com/sdk/sdk-3.0.0.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
-    <script type="text/javascript" src="/js/vendor/page.js"></script>
     <script type="text/javascript" src="/js/vendor/collapse.js"></script>
     <!-- CONTROLLER SCRIPTS -->
     <script type="text/javascript" src="/js/controller.js"></script>

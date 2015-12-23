@@ -1,4 +1,4 @@
-var ref = new Firebase('https://warrior-meditation.firebaseio.com');
+var firebase = new Firebase('https://warrior-meditation.firebaseio.com');
 
 var User = {};
 User.uid = '';
@@ -13,7 +13,7 @@ User.currConsecDays = 0;
 
 
 User.existence = function (uid) {
-  ref.once('value', function(snapshot) {
+  firebase.once('value', function(snapshot) {
     var snap = snapshot.child('users').child(uid);
     User.exists = snap.exists();
     if (User.exists) {
@@ -42,7 +42,7 @@ User.createUser = function (event) {
   User.name = $('#formName').val();
   User.email = $('#formEmail').val();
   var userPassword = $('#formPassword').val();
-  ref.createUser({
+  firebase.createUser({
     email    : User.email,
     password : userPassword
   }, function(error, userData) {
@@ -64,7 +64,7 @@ User.authUser = function (event) {
 };
 
 User.authenticate = function (userPassword) {
-  ref.authWithPassword({
+  firebase.authWithPassword({
     email    : User.email,
     password : userPassword
   }, function(error, authData) {
@@ -86,7 +86,7 @@ User.createUserRecord = function(uid) {
   userString = JSON.stringify(User);
   console.log(User);
   console.log(userString);
-  ref.child('users').child(uid).set({
+  firebase.child('users').child(uid).set({
     uid: User.uid,
     name:  User.name,
     email: User.email,

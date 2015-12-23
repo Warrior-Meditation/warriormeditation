@@ -9,6 +9,19 @@
   <body>
     <header>SCORING</header>
     <main>
+      <form action="#" id="loginAccount">
+        <fieldset>
+          <legend>Login</legend>
+          <label for="email">Email address:
+            <input id="loginEmail" type="email" name="email" placeholder="joe@nowhere.com" required>
+          </label>
+          <label for="password">Password:
+            <input id="loginPassword" type="password" name="password" placeholder="password" required>
+          </label>
+          <input id="loginSubmit" type="submit" value="Submit">
+        </fieldset>
+      </form>
+
       <a href="" id="start-test">Start</a>
       <a href="" id="stop-test">Stop</a>
       <section id="total-days"></section>
@@ -17,6 +30,7 @@
       <section id="highest-consecutive-days"></section>
     </main>
     <footer></footer>
+    <script src="https://cdn.firebase.com/js/client/2.3.2/firebase.js"></script>
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
     <script src="https://connect.soundcloud.com/sdk/sdk-3.0.0.js"></script>
@@ -28,6 +42,7 @@
     <script type="text/javascript" src="/js/indexView.js"></script>
     <script type="text/javascript" src="/js/meditation.js"></script>
     <script type="text/javascript" src="/js/meditationController.js"></script>
+    <script type="text/javascript" src="/js/user.js"></script>
     <script type="text/javascript" src="/js/meditationView.js"></script>
     <script type="text/javascript" src="/js/router.js"></script>
   </body>

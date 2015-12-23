@@ -5,8 +5,9 @@ User.uid = '';
 User.exists = false;
 User.name = '';
 User.email = '';
-User.lastMeditated = '';
-User.ttlTimeMeditated = 0;
+User.lastDay = '';
+User.ttlTime = 0;
+User.ttlDays = 0;
 User.mostConsecDays = 0;
 User.currConsecDays = 0;
 
@@ -20,8 +21,11 @@ User.existence = function (uid) {
       console.log(snap.val());
       snapObj = snap.val();
       var keys = Object.keys(snapObj);
+      console.log('Keys: ' + keys);
       keys.forEach(function(el){
+        console.log('Each el ' + el);
         User[el] = snapObj[el];
+        console.log(User[el] + ' = ' + snapObj[el]);
       });
       console.log(User);
 
@@ -86,8 +90,8 @@ User.createUserRecord = function(uid) {
     uid: User.uid,
     name:  User.name,
     email: User.email,
-    lastMeditated: User.lastMeditated,
-    ttlTimeMeditated: User.ttlTimeMeditated,
+    lastDay: User.lastDay,
+    ttlTime: User.ttlTime,
     mostConsecDays: User.mostConsecDays,
     currConsecDays: User.currConsecDays
   });

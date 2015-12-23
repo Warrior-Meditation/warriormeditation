@@ -54,4 +54,11 @@ SC.stream(url).then(function(player) {
     console.log('finish');
   });
 });
+
+meditationScoring = function() {
+  $('#total-days').text(User.ttlDays);
+  $('#total-time').text(Math.floor(User.ttlTime/3600000));
+  $('#current-consecutive-days').text(User.currConsecDays);
+  $('#highest-consecutive-days').text(User.mostConsecDays);
+};
 // };

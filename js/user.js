@@ -5,30 +5,27 @@ User.uid = '';
 User.exists = false;
 User.name = '';
 User.email = '';
+User.allJournals = [];
 User.lastDay = '';
 User.ttlTime = 0;
 User.ttlDays = 0;
 User.mostConsecDays = 0;
 User.currConsecDays = 0;
 
-
 User.existence = function (uid) {
-  firebase.once('value', function(snapshot) {
-    var snap = snapshot.child('users').child(uid);
+  firebase.child('users').child(uid).once('value', function(snapshot) {
+    var snap = snapshot;
     User.exists = snap.exists();
     if (User.exists) {
       console.log('User record exists; don\'t create');
       console.log(snap.val());
       snapObj = snap.val();
       var keys = Object.keys(snapObj);
-      console.log('Keys: ' + keys);
       keys.forEach(function(el){
-        console.log('Each el ' + el);
         User[el] = snapObj[el];
         console.log(User[el] + ' = ' + snapObj[el]);
       });
-      console.log(User);
-
+      User.allJournals = JSON.parse(User.journalsString);
       return;
     }
     else {
@@ -74,7 +71,6 @@ User.authenticate = function (userPassword) {
       console.log('Authenticated successfully with payload:', authData);
       var uid = authData.uid;
       User.uid = uid;
-      console.log(uid);
       User.existence(uid);
     }
   });
@@ -83,7 +79,6 @@ User.authenticate = function (userPassword) {
 User.createUserRecord = function(uid) {
   console.log('creating record');
   User.uid = uid;
-  userString = JSON.stringify(User);
   console.log(User);
   console.log(userString);
   firebase.child('users').child(uid).set({

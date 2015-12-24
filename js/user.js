@@ -88,7 +88,7 @@ User.recordExists = function () {
 
 User.createUserRecord = function() {
   console.log('creating record');
-  firebase.child('users').child(uid).set({
+  firebase.child('users').child(User.uid).set({
     uid: User.uid,
     name:  User.name,
     email: User.email,

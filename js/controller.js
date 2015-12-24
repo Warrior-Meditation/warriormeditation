@@ -36,3 +36,15 @@ controller.journalTemplate = function(ctx, next) {
     });
   }
 };
+
+//RESOURCES METHODS
+
+controller.resourcesInit = function() {
+  resourcesView.init();
+};
+
+//ABOUT METHODS
+
+controller.aboutInit = function() {
+  aboutView.init();
+};

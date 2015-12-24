@@ -3,8 +3,13 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
   </head>
   <body>
+    <div class="">
+      <h2><a href="#" id="auth-status">Error</a></h2>
+    </div>
 
     <form action="#" id="createAccount">
       <fieldset>
@@ -39,7 +44,21 @@
 
   </body>
   <script src="https://cdn.firebase.com/js/client/2.3.2/firebase.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
+  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+  <script src="https://connect.soundcloud.com/sdk/sdk-3.0.0.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="/js/vendor/page.js"></script>
+  <!-- CONTROLLER SCRIPTS -->
+  <script type="text/javascript" src="/js/controller.js"></script>
+  <!-- VIEW SCRIPTS -->
+  <script type="text/javascript" src="/js/indexView.js"></script>
+  <script type="text/javascript" src="/js/meditationView.js"></script>
+  <script type="text/javascript" src="/js/archiveView.js"></script>
+  <script type="text/javascript" src="/js/editorView.js"></script>
+  <!-- MODEL SCRIPTS -->
+  <script type="text/javascript" src="/js/meditation.js"></script>
+  <script type="text/javascript" src="/js/journal.js"></script>
   <script src="/js/user.js" type="text/javascript">
   </script>
 </html>

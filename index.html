@@ -24,128 +24,121 @@
     <link rel="icon" href="../../favicon.ico">
   </head>
   <body>
-
     <nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="#">Calmmmmm</a>
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <a href="/"><span class="icon-bar">Home</span></a>
+            <a href="/journal/new"><span class="icon-bar">New Journal Entry</span></a>
+            <a href="/journal/archive"><span class="icon-bar">Journal Archive</span></a>
+            <a href="/resources"><span class="icon-bar">Resources</span></a>
+            <a href="/about"><span class="icon-bar">About</span></a>
+          </button>
+          <a class="navbar-brand" href="#">Calmmmmm</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <form class="navbar-form navbar-right">
+            <div class="form-group">
+              <input type="text" placeholder="Email" class="form-control">
+            </div>
+            <div class="form-group">
+              <input type="password" placeholder="Password" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-success">Sign in</button>
+          </form>
+        </div><!--/.navbar-collapse -->
       </div>
-      <div id="navbar" class="navbar-collapse collapse">
-        <form class="navbar-form navbar-right">
-          <div class="form-group">
-            <input type="text" placeholder="Email" class="form-control">
+    </nav>
+
+    <main>
+      <section id="index-content">
+        <div class="jumbotron">
+          <div class="container">
+            <h1>Warrior Meditation</h1>
+            <p>This site is for X, Y, Z. Meditation is very, very, very, very good.</p>
+            <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
           </div>
-          <div class="form-group">
-            <input type="password" placeholder="Password" class="form-control">
+        </div>
+
+        <!-- LARGE LOGO - MAKE SMALLER FILE - OR POSTER IMAGE OF REASONS TO MEDITATE -->
+        <div class="container">
+          <img src="img/hamsa.jpg" class="img-responsive" alt="Warrior meditation logo">
+        </div>
+
+        <div class="container">
+          <div class="row">
+            <div class="col-md-4">
+              <a href="/meditation/Nada"><h2>Meditation 1</h2></a>
+              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+              <p><a class="btn btn-default" href="/meditation/Nada" role="button">View details &raquo;</a></p>
+            </div>
+
+            <div class="col-md-4">
+              <h2>Meditation 2</h2>
+              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+              <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+            </div>
+
+            <div class="col-md-4">
+              <h2>Meditation 3</h2>
+              <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+              <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+            </div>
           </div>
-          <button type="submit" class="btn btn-success">Sign in</button>
+      </section>
+      <section id="meditation-content">
+        <div id="current-meditation">
+        </div>
+        <div id ="feedback">
+          <button type="button" id="ok-button">OK</button>
+          <a id="journal-link" href="/journal/new"><button type="submit" id="journal-button" formmethod="get">Journal This Meditation</button></a>
+        </div>
+      </section>
+      <section id="journal-editor-content">
+        <form id="journal-form">
+          <input id="edit-title" type="text" placeholder="title" required/>
+          <input id="edit-body" placeholder="body" required/>
+          <input type="submit"></input>
         </form>
-      </div><!--/.navbar-collapse -->
-    </div>
-  </nav>
+      </section>
+  <!-- LIST OF JOURNAL ENTRIES WRITTEN BY USER -->
+      <section id="journal-archive-content">
+      </section>
 
-<div class="jumbotron">
-  <div class="container">
-    <h1>Warrior Meditation</h1>
-    <p>This site is for X, Y, Z. Meditation is very, very, very, very good.</p>
-    <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
-  </div>
-</div>
+  <!-- ABOUT THE PROJECT AND CREATORS -->
+      <section id="about-content">
+        <p>This is about content</p>
+      </section>
 
-<!-- LARGE LOGO - MAKE SMALLER FILE - OR POSTER IMAGE OF REASONS TO MEDITATE -->
-<div class="container">
-  <img src="img/hamsa.jpg" class="img-responsive" alt="Warrior meditation logo">
-</div>
-
-<!-- THIS CONTENT CAN BE REPLACED BY POSTER IMAGE IF WE HAVE ONE!
-<div class="inner cover">
-  <h1 class="cover-heading">Reasons To Meditate</h1>
-  <p class="lead">Control your mind</p>
-  <p class="lead">
-    <a href="#" class="btn btn-lg btn-default">Stay Calm</a>
-    <a href="#" class="btn btn-lg btn-default">Stay Calm</a>
-    <a href="#" class="btn btn-lg btn-default">Stay Calm</a>
-    <a href="#" class="btn btn-lg btn-default">Stay Calm</a>
-  </p>
-  <button type='button'>Accept the Mission</button>
-  <button type='button'>Log in to Track Your Progress</button> -->
-
-<!-- MEDITATIONS -->
-<section id="meditation-content">
-<div class="container">
-<div class="row">
-      <div class="col-md-4">
-
-        <h2>Meditation 1</h2>
-        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-        <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-      </div>
-
-      <div class="col-md-4">
-        <h2>Meditation 2</h2>
-        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-        <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-     </div>
-
-      <div class="col-md-4">
-        <h2>Meditation 3</h2>
-        <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-        <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-      </div>
-    </div>
-  </section>
-    <hr>
-
-
-<!-- JOURNAL ENTRY FORM AVAILABLE UPON USER LOGIN             -->
-            <section id="journal-editor-content">
-              <form id="journal-form">
-                <input id="edit-title" type="text" placeholder="title" required/>
-                <input id="edit-body" placeholder="body" required/>
-                <input type="submit"></input>
-              </form>
-            </section>
-
-<!-- LIST OF JOURNAL ENTRIES WRITTEN BY USER -->
-            <section id="journal-archive-content">
-            </section>
-
-<!-- ABOUT THE PROJECT AND CREATORS -->
-            <section id="about-content">
-              <p>This is about content</p>
-            </section>
-
-<!-- RESOURCES FOR USER -->
-            <section id="resources-content">
-              <p>This is resources content</p>
-            </section>
-
+  <!-- RESOURCES FOR USER -->
+      <section id="resources-content">
+        <p>This is resources content</p>
+      </section>
+    </main>
 
     <footer>
-<p>(c) 2015 Warrior Meditation.</p>
+      <p>&copy; 2015 Warrior Meditation.</p>
     </footer>
 
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
-    <script src="https://connect.soundcloud.com/sdk/sdk-3.0.0.js"></script>
-    <script type="text/javascript" src="/js/vendor/collapse.js"></script>
-    <!-- CONTROLLER SCRIPTS -->
-    <script type="text/javascript" src="/js/controller.js"></script>
-    <!-- VIEW SCRIPTS -->
-    <script type="text/javascript" src="/js/indexView.js"></script>
-    <script type="text/javascript" src="/js/meditationView.js"></script>
-    <script type="text/javascript" src="/js/archiveView.js"></script>
-    <script type="text/javascript" src="/js/editorView.js"></script>
-    <!-- MODEL SCRIPTS -->
-    <script type="text/javascript" src="/js/meditation.js"></script>
-    <script type="text/javascript" src="/js/journal.js"></script>
-    <!-- ROUTER -->
-    <script type="text/javascript" src="/js/router.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+   <script src="https://connect.soundcloud.com/sdk/sdk-3.0.0.js"></script>
+   <script type="text/javascript" src="/js/vendor/page.js"></script>
+   <!-- CONTROLLER SCRIPTS -->
+   <script type="text/javascript" src="/js/controller.js"></script>
+   <!-- VIEW SCRIPTS -->
+   <script type="text/javascript" src="/js/indexView.js"></script>
+   <script type="text/javascript" src="/js/meditationView.js"></script>
+   <script type="text/javascript" src="/js/archiveView.js"></script>
+   <script type="text/javascript" src="/js/editorView.js"></script>
+   <script type="text/javascript" src="/js/resourcesView.js"></script>
+   <script type="text/javascript" src="/js/aboutView.js"></script>
+   <!-- MODEL SCRIPTS -->
+   <script type="text/javascript" src="/js/user.js"></script>
+   <script type="text/javascript" src="/js/meditation.js"></script>
+   <script type="text/javascript" src="/js/journal.js"></script>
+   <!-- ROUTER -->
+   <script type="text/javascript" src="/js/router.js"></script>
   </body>
 </html>

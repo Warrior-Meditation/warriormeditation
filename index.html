@@ -2,35 +2,90 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Warrior Meditation</title>
-    <link rel="stylesheet" href="/bootstrap/docs/dist/css/bootstrap.css">
-    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- THE STRAPPERY -->
+    <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="/css/jumbotron.css">
+
+<!-- META -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
   </head>
   <body>
-    <header>
-      <nav>
-        <img id="logo" src="" alt="logo" />
-        <h1>Warrior Meditation</h1>
-        <ul>
-          <a href="/"><li>Home</li></a>
-          <a href="/journal/new"><li>New Journal Entry</li></a>
-          <a href="/journal/archive"><li>Journal Archive</li></a>
-          <a href="/resources"><li>Resources</li></a>
-          <a href="/about"><li>About</li></a>
-        </ul>
-        <div id="hamburger"></div>
-      </nav>
-    </header>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <a href="/"><span class="icon-bar">Home</span></a>
+            <a href="/journal/new"><span class="icon-bar">New Journal Entry</span></a>
+            <a href="/journal/archive"><span class="icon-bar">Journal Archive</span></a>
+            <a href="/resources"><span class="icon-bar">Resources</span></a>
+            <a href="/about"><span class="icon-bar">About</span></a>
+          </button>
+          <a class="navbar-brand" href="#">Calmmmmm</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <form class="navbar-form navbar-right">
+            <div class="form-group">
+              <input type="text" placeholder="Email" class="form-control">
+            </div>
+            <div class="form-group">
+              <input type="password" placeholder="Password" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-success">Sign in</button>
+          </form>
+        </div><!--/.navbar-collapse -->
+      </div>
+    </nav>
+
     <main>
       <section id="index-content">
-        <h1>Warrior Meditation</h1>
-        <h2>Reasons to Meditate</h2>
-        <ul>
-          <a href="/meditation/Nada"><li>Stay calm</li></a>
-          <li>Etc.</li>
-        </ul>
-        <button type='button'>Accept the Mission</button>
-        <button type='button'>Log in to Track Your Progress</button>
+        <div class="jumbotron">
+          <div class="container">
+            <h1>Warrior Meditation</h1>
+            <p>This site is for X, Y, Z. Meditation is very, very, very, very good.</p>
+            <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
+          </div>
+        </div>
+
+        <!-- LARGE LOGO - MAKE SMALLER FILE - OR POSTER IMAGE OF REASONS TO MEDITATE -->
+        <div class="container">
+          <img src="img/hamsa.jpg" class="img-responsive" alt="Warrior meditation logo">
+        </div>
+
+        <div class="container">
+          <div class="row">
+            <div class="col-md-4">
+              <a href="/meditation/Nada"><h2>Meditation 1</h2></a>
+              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+              <p><a class="btn btn-default" href="/meditation/Nada" role="button">View details &raquo;</a></p>
+            </div>
+
+            <div class="col-md-4">
+              <h2>Meditation 2</h2>
+              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+              <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+            </div>
+
+            <div class="col-md-4">
+              <h2>Meditation 3</h2>
+              <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+              <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+            </div>
+          </div>
       </section>
       <section id="meditation-content">
         <div id="current-meditation">
@@ -47,37 +102,43 @@
           <input type="submit"></input>
         </form>
       </section>
+  <!-- LIST OF JOURNAL ENTRIES WRITTEN BY USER -->
       <section id="journal-archive-content">
       </section>
+
+  <!-- ABOUT THE PROJECT AND CREATORS -->
       <section id="about-content">
-        <p>this is about content</p>
+        <p>This is about content</p>
       </section>
+
+  <!-- RESOURCES FOR USER -->
       <section id="resources-content">
         <p>This is resources content</p>
       </section>
     </main>
-    <footer></footer>
+
+    <footer>
+      <p>&copy; 2015 Warrior Meditation.</p>
+    </footer>
+
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
-    <script src="https://connect.soundcloud.com/sdk/sdk-3.0.0.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
-    <script type="text/javascript" src="/js/vendor/page.js"></script>
-    <!-- CONTROLLER SCRIPTS -->
-    <script type="text/javascript" src="/js/controller.js"></script>
-    <!-- VIEW SCRIPTS -->
-    <script type="text/javascript" src="/js/indexView.js"></script>
-    <script type="text/javascript" src="/js/meditationView.js"></script>
-    <script type="text/javascript" src="/js/archiveView.js"></script>
-    <script type="text/javascript" src="/js/editorView.js"></script>
-    <script type="text/javascript" src="/js/resourcesView.js"></script>
-    <script type="text/javascript" src="/js/aboutView.js"></script>
-    <!-- MODEL SCRIPTS -->
-    <script type="text/javascript" src="/js/user.js"></script>
-    <script type="text/javascript" src="/js/meditation.js"></script>
-    <script type="text/javascript" src="/js/journal.js"></script>
-    <!-- ROUTER -->
-    <script type="text/javascript" src="/js/router.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+   <script src="https://connect.soundcloud.com/sdk/sdk-3.0.0.js"></script>
+   <script type="text/javascript" src="/js/vendor/page.js"></script>
+   <!-- CONTROLLER SCRIPTS -->
+   <script type="text/javascript" src="/js/controller.js"></script>
+   <!-- VIEW SCRIPTS -->
+   <script type="text/javascript" src="/js/indexView.js"></script>
+   <script type="text/javascript" src="/js/meditationView.js"></script>
+   <script type="text/javascript" src="/js/archiveView.js"></script>
+   <script type="text/javascript" src="/js/editorView.js"></script>
+   <script type="text/javascript" src="/js/resourcesView.js"></script>
+   <script type="text/javascript" src="/js/aboutView.js"></script>
+   <!-- MODEL SCRIPTS -->
+   <script type="text/javascript" src="/js/user.js"></script>
+   <script type="text/javascript" src="/js/meditation.js"></script>
+   <script type="text/javascript" src="/js/journal.js"></script>
+   <!-- ROUTER -->
+   <script type="text/javascript" src="/js/router.js"></script>
   </body>
 </html>

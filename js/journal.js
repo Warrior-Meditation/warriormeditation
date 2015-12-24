@@ -23,7 +23,7 @@ Journal.getJSON = function(callback) {
 };
 
 Journal.retrieveJournals = function() {
-  firebase.child('users').child(uid).child('journalsString').once('value', function(snapshot) {
+  firebase.child('users').child(User.uid).child('journalsString').once('value', function(snapshot) {
     var snap = snapshot;
     User.allJournals = JSON.parse(snap);
   });
@@ -31,5 +31,5 @@ Journal.retrieveJournals = function() {
 
 Journal.storeJournals = function() {
   journalsString = JSON.stringify(User.allJournals);
-  firebase.child('users').child(uid).child('journalsString').set(journalsString);
+  firebase.child('users').child(User.uid).child('journalsString').set(journalsString);
 };

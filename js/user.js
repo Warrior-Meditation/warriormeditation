@@ -78,8 +78,6 @@ User.recordExists = function () {
       keys.forEach(function(el){
         User[el] = snapObj[el];
       });
-      // I think the below code is vestigal.
-      // User.allJournals = JSON.parse(User.journalsString);
     }
     else {
       User.createUserRecord();
@@ -102,13 +100,11 @@ User.createUserRecord = function() {
 };
 
 User.setLogin = function(){
-  // $('#user-name').hide().text('');
   $('#auth-status').text('Login/Register').removeClass('logout').addClass('login');
   $('.login').on('click', User.login);
 };
 
 User.setLogout = function(){
-  // $('#user-name').show().text(User.name + '&mdash;');
   $('#auth-status').text('Logout').removeClass('login').addClass('logout');
   $('.logout').on('click', User.logout);
 };
@@ -125,9 +121,8 @@ User.logout = function(event){
   event.preventDefault();
   console.log('Logging out user!');
   firebase.unauth();
-  User.setLogin();  //Not necessary due to User.alreadyAuthed?
-  // User.alreadyAuthed;
-  indexView.init();
+  User.setLogin();
+  page('/login');
 };
 
 //router should call these
@@ -137,5 +132,5 @@ $('#loginAccount').submit(User.authUser);
 
 
 $(function() {
-  User.alreadyAuthed();  //Tests if user already authenticated
+  User.alreadyAuthed();
 });

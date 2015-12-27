@@ -100,7 +100,7 @@ User.createUserRecord = function() {
 };
 
 User.setLogin = function(){
-  $('#auth-status').text('Login').removeClass('logout').addClass('login');
+  $('#auth-status').text('Login/Register').removeClass('logout').addClass('login');
   $('.login').on('click', User.login);
 };
 
@@ -113,6 +113,7 @@ User.login = function(event){
   event.preventDefault();
   console.log('Take the user to login screen');
   User.setLogin();
+  controller.loginInit();
 };
 
 User.logout = function(event){

@@ -51,6 +51,6 @@ controller.aboutInit = function() {
 
 //LOGIN/REGISTRATION METHODS
 
-controller.aboutInit = function() {
+controller.loginInit = function() {
   loginView.init();
 };

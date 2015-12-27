@@ -20,7 +20,7 @@
 <!-- META -->
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="./img/favicon.png">
+    <link rel="icon" href="/img/favicon.png">
   </head>
   <body>
     <nav role="navigation" class="navbar navbar-inverse navbar-fixed-top">
@@ -46,7 +46,7 @@
                 <li><a href="/about">About</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="/login">Login/Register</a></li>
+                <li><a href="/login" id="auth-status">Login/Register</a></li>
             </ul>
         </div>
       </div>
@@ -58,7 +58,7 @@
           <div class="container-fluid">
             <div class="row">
               <div class="col-sm-3 hidden-xs">
-                <img src="img/hamsa-150a.png" class="img-responsive center-block" alt="Warrior meditation logo">
+                <img src="/img/hamsa-150a.png" class="img-responsive center-block" alt="Warrior meditation logo">
               </div>
               <div class="col-sm-9 col-xs-12">
                 <h1>Warrior Meditation</h1>
@@ -110,6 +110,9 @@
       </section>
   <!-- LIST OF JOURNAL ENTRIES WRITTEN BY USER -->
       <section id="journal-archive-content">
+        <p>
+          Journal Archive Content
+        </p>
       </section>
 
   <!-- ABOUT THE PROJECT AND CREATORS -->
@@ -125,6 +128,34 @@
     <!-- LOGIN AND REGISTRAION -->
         <section id="login-content">
           <p>This is the login/registration</p>
+          <form action="#" id="createAccount">
+            <fieldset>
+              <legend>Create an Account</legend>
+              <label for="fullName">Name:
+                <input id="formName" type="text" name="fullName" placeholder="Joe Blow" required>
+              </label>
+              <label for="email">Email address:
+                <input id="formEmail" type="email" name="email" placeholder="joe@nowhere.com" required>
+              </label>
+              <label for="password">Password:
+                <input id="formPassword" type="password" name="password" placeholder="password" required>
+              </label>
+              <input id="formSubmit" type="submit" value="Submit">
+            </fieldset>
+          </form>
+
+          <form action="#" id="loginAccount">
+            <fieldset>
+              <legend>Login</legend>
+              <label for="email">Email address:
+                <input id="loginEmail" type="email" name="email" placeholder="joe@nowhere.com" required>
+              </label>
+              <label for="password">Password:
+                <input id="loginPassword" type="password" name="password" placeholder="password" required>
+              </label>
+              <input id="loginSubmit" type="submit" value="Submit">
+            </fieldset>
+          </form>
         </section>
     </main>
 
@@ -147,6 +178,7 @@
    <script type="text/javascript" src="/js/editorView.js"></script>
    <script type="text/javascript" src="/js/resourcesView.js"></script>
    <script type="text/javascript" src="/js/aboutView.js"></script>
+   <script type="text/javascript" src="/js/loginView.js"></script>
    <!-- MODEL SCRIPTS -->
    <script type="text/javascript" src="/js/user.js"></script>
    <script type="text/javascript" src="/js/meditation.js"></script>

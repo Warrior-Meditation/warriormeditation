@@ -21,6 +21,9 @@ meditationView.render = function(meditation) {
       '<a href="" id="stop">Stop</a>'
     ]
   );
+  if (User.uid) {
+    $('#user-scoring').show();
+  } 
 };
 
 meditationView.player = function(url) {

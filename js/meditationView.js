@@ -4,7 +4,8 @@ meditationView.init = function(meditation) {
   meditationView.render(meditation);
   meditationView.handleFeedback();
   meditationView.player(meditation.soundUrl);
-  $('#journal-link').attr('href', '/journal/new?category='+ meditation.title);
+  User.currentMeditation = meditation.title;
+  //$('#journal-link').attr('href', '/journal/new?category='+ meditation.title);
 };
 
 meditationView.render = function(meditation) {

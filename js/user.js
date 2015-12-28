@@ -13,6 +13,7 @@ User.ttlDays = 0;
 User.ttlMeditations = 0;
 User.mostConsecDays = 0;
 User.currConsecDays = 0;
+User.currentMeditation = '';
 
 User.alreadyAuthed = function() {
   var authData = firebase.getAuth();

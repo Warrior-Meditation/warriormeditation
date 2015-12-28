@@ -15,7 +15,7 @@
 
   <!-- Latest compiled and minified JavaScript -->
 
-  <link rel="stylesheet" href="/css/jumbotron.css">
+  <link rel="stylesheet" href="/css/style.css">
 
 <!-- META -->
     <meta name="description" content="">
@@ -26,7 +26,7 @@
     <nav role="navigation" class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
-          <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle " aria-expanded="false" aria-controls="navbar">
+          <button type="button"  id="hamburger" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle " aria-expanded="false" aria-controls="navbar">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -34,7 +34,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Warrior Meditation</a>
+          <a class="navbar-brand" href="/">Warrior Meditation</a>
         </div>
         <div id="navbarCollapse" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
@@ -62,7 +62,7 @@
               <div class="col-sm-9 col-xs-12">
                 <h1>Warrior Meditation</h1>
                 <p>This site is for X, Y, Z. Meditation is very, very, very, very good.</p>
-                <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
+                <p><a class="btn btn-primary btn-lg" href="/about" role="button">Learn more &raquo;</a></p>
               </div>
             </div>
           </div>
@@ -96,14 +96,14 @@
         <div id="current-meditation">
         </div>
         <div id ="feedback">
-          <button type="button" id="ok-button">OK</button>
-          <a id="journal-link" href="/journal/new"><button type="submit" id="journal-button" formmethod="get">Journal This Meditation</button></a>
+          <button type="button" id="ok-button">I'm Finished</button>
+          <a id="journal-link" href="/journal/new"><button type="submit" id="journal-button" formmethod="get">I'm Finished. Journal This Meditation</button></a>
         </div>
       </section>
       <section id="journal-editor-content">
         <form id="journal-form">
-          <input id="edit-title" type="text" placeholder="title" required/>
-          <input id="edit-body" placeholder="body" required/>
+          <input id="edit-title" type="text" placeholder="title" required/><br>
+          <input id="edit-body" placeholder="body" required/><br>
           <input type="submit"></input>
         </form>
       </section>
@@ -181,6 +181,7 @@
    <script type="text/javascript" src="/js/controller.js"></script>
    <!-- VIEW SCRIPTS -->
    <script type="text/javascript" src="/js/indexView.js"></script>
+   <script type="text/javascript" src="/js/util.js"></script>
    <script type="text/javascript" src="/js/meditationView.js"></script>
    <script type="text/javascript" src="/js/archiveView.js"></script>
    <script type="text/javascript" src="/js/editorView.js"></script>

@@ -8,6 +8,9 @@ archiveView.init = function() {
   User.allJournals.forEach(function(entry) {
     $('#journal-archive-content').append(archiveView.toHTML(entry));
   });
+  if (User.uid) {
+    $('#user-scoring').show();
+  }
 };
 
 archiveView.toHTML = function(entry) {

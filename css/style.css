@@ -3,3 +3,27 @@
   padding: 1em;
   display: none;
 }
+
+/*SCORING SIDEBAR*/
+.bs-sidebar.affix {
+  top: 25px;
+}
+
+@media (min-width: 768px) {
+  .bs-sidebar.affix {
+    width: 158px;
+    top: 25px;
+  }
+}
+
+@media (min-width: 992px) {
+  .bs-sidebar.affix {
+    width: 213px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .bs-sidebar.affix {
+    width: 263px;
+  }
+}

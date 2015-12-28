@@ -11,6 +11,10 @@ meditationView.render = function(meditation) {
   $('#meditation-content')
     .show()
     .siblings().hide();
+if (User.uid) {
+  $('#user-scoring').show();
+}
+
   $('#current-meditation')
     .empty()
     .append([
@@ -70,6 +74,14 @@ meditationScoring = function() {
   $('#current-consecutive-days').text(User.currConsecDays);
   $('#highest-consecutive-days').text(User.mostConsecDays);
 };
+
+// MEDITATION SCORING WIDGET: SHOWS UPON LOGIN
+meditationView.handleSidebar = function() {
+  $('#sidebar').affix({
+  offset: {
+    top: $('.navbar-default').height()
+  }
+});
 
 meditationView.handleFeedback = function() {
   $('#ok-button').on('click', function() {

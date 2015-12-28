@@ -1,4 +1,3 @@
 notes
 **/.DS_Store
-**/githubToken.js
-scTokens
+node_modules

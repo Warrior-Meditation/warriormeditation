@@ -18,9 +18,9 @@ meditationView.render = function(meditation) {
     .empty()
     .append([
       '<h1>' + meditation.title + '</h1>',
-      '<p>' + meditation.description + '</p>',
-      '<a href="" id="start">Start</a>',
-      '<a href="" id="stop">Stop</a>'
+      '<p>' + meditation.description + '</p>'
+      // '<a href="" id="start">Start</a>',
+      // '<a href="" id="stop">Stop</a>'
     ]
   );
 };

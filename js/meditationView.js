@@ -11,6 +11,7 @@ meditationView.render = function(meditation) {
   $('#meditation-content')
     .show()
     .siblings().hide();
+  $('#feedback').hide();
   $('#current-meditation')
     .empty()
     .append([

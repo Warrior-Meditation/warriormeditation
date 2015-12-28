@@ -5,22 +5,22 @@ var Journal = function(props) {
   this.publishedOn = props.publishedOn;
 };
 
-Journal.getJSON = function(callback) {
-  if (User.allJournals.length) {
-    callback();
-  } else {
-    $.getJSON('/js/journalEntries.json', function(data) {
-      var dataString = JSON.stringify(data);
-      firebase.child('users').child(User.uid).child('journalsString').set(dataString);
-      data.forEach(function(e) {
-        // firebase.child('users').child(User.uid).child('journals').push(e);
-        var journal = new Journal(e);
-        User.allJournals.push(journal);
-      });
-      // callback();
-    });
-  }
-};
+// Journal.getJSON = function(callback) {
+//   if (User.allJournals.length) {
+//     callback();
+//   } else {
+//     $.getJSON('/js/journalEntries.json', function(data) {
+//       var dataString = JSON.stringify(data);
+//       firebase.child('users').child(User.uid).child('journalsString').set(dataString);
+//       data.forEach(function(e) {
+//         // firebase.child('users').child(User.uid).child('journals').push(e);
+//         var journal = new Journal(e);
+//         User.allJournals.push(journal);
+//       });
+//       // callback();
+//     });
+//   }
+// };
 
 Journal.retrieveJournals = function() {
   firebase.child('users').child(User.uid).child('journalsString').once('value', function(snapshot) {

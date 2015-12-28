@@ -1,6 +1,7 @@
 var meditationView = {};
 
 meditationView.init = function(meditation) {
+  $('.nav > li').removeClass('active');
   meditationView.render(meditation);
   meditationView.handleFeedback();
   meditationView.player(meditation.soundUrl);

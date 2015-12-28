@@ -7,8 +7,10 @@ User.name = '';
 User.email = '';
 User.allJournals = [];
 User.lastDay = '';
+User.currTime = 0;
 User.ttlTime = 0;
 User.ttlDays = 0;
+User.ttlMeditations = 0;
 User.mostConsecDays = 0;
 User.currConsecDays = 0;
 
@@ -80,23 +82,48 @@ User.recordExists = function () {
       });
     }
     else {
-      User.createUserRecord();
+      User.updateUserRecord();
     }
   });
 };
 
-User.createUserRecord = function() {
-  console.log('creating record');
-  firebase.child('users').child(User.uid).set({
+User.updateUserRecord = function() {
+  console.log('updating Firebase record');
+  firebase.child('users').child(User.uid).update({
     uid: User.uid,
     name:  User.name,
     email: User.email,
     lastDay: User.lastDay,
+    currTime: User.currTime,
     ttlTime: User.ttlTime,
+    ttlDays: User.ttlDays,
+    ttlMeditations: User.ttlMeditations,
     mostConsecDays: User.mostConsecDays,
     currConsecDays: User.currConsecDays
   });
   Journal.storeJournals();
+};
+
+User.newConsecDays = function() {
+  if (!User.lastDay) {
+    User.lastDay = util.today();
+  }
+  var daysSinceLastMed = util.relativeDate(User.lastDay);
+  console.log('daysSinceLastMed value ' + daysSinceLastMed);
+  if (daysSinceLastMed === 1) {
+    console.log('daysSinceLastMed = one');
+    User.currConsecDays += 1;
+    User.ttlDays += 1;
+  }
+  else if (daysSinceLastMed > 1) {
+    console.log('daysSinceLastMed = zero');
+    User.currConsecDays = 0;
+    User.ttlDays += 1;
+  }
+  User.lastDay = util.today();
+  if (User.currConsecDays > User.mostConsecDays) {
+    User.mostConsecDays = User.currConsecDays;
+  }
 };
 
 User.setLogin = function(){

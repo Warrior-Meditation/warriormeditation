@@ -37,9 +37,7 @@ meditationView.player = function(url) {
   SC.stream(url).then(function(player) {
     $('#start').on('click', function (e) {
       e.preventDefault();
-      //Kick out date
-      mostRecentDay = new Date().toISOString().slice(0,10);
-      console.log(mostRecentDay);
+      User.currTime = 0;
       console.log('start');
       console.log(player);
       player.play();
@@ -48,31 +46,35 @@ meditationView.player = function(url) {
     $('#stop').on('click', function (e) {
       e.preventDefault();
       console.log('stop');
-      timeCounter = player.currentTime();
-      //kick out elapsed time
+      timeCounter = player.currentTime();  //milliseconds
       console.log(timeCounter);
       player.pause();
     });
 
     player.on('finish', function () {
-      timeCounter = currentTrack._result.duration;
-      //kick out elapsed time
-      console.log(timeCounter);
+      User.currTime = currentTrack._result.duration;
+      console.log('Final time' + timeCounter);
       console.log('finish');
       $('#feedback').fadeIn(1000);
     });
   });
 };
 
-meditationScoring = function() {
-  $('#total-days').text(User.ttlDays);
-  $('#total-time').text(Math.floor(User.ttlTime/3600000));
-  $('#current-consecutive-days').text(User.currConsecDays);
-  $('#highest-consecutive-days').text(User.mostConsecDays);
-};
+// meditationScoring = function() {
+//   $('#total-days').text(User.ttlDays);
+//   $('#total-time').text(Math.floor(User.ttlTime/3600000));
+//   $('#current-consecutive-days').text(User.currConsecDays);
+//   $('#highest-consecutive-days').text(User.mostConsecDays);
+// };
 
 meditationView.handleFeedback = function() {
   $('#ok-button').on('click', function() {
+    User.newConsecDays();
+    User.ttlMeditations += 1;
+    User.ttlTime += User.currTime;
+    if (User.uid) {
+      User.updateUserRecord();
+    }
     $('#feedback').fadeOut(1000);
   });
 };

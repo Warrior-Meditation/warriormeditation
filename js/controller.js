@@ -18,12 +18,12 @@ controller.meditationInit = function(ctx, next) {
 
 //JOURNAL METHODS
 
-controller.initEditor = function(ctx, next) {
+controller.editorInit = function(ctx, next) {
   editorView.init(ctx);
 };
 
-controller.getJournalEntries = function() {
-  Journal.getJSON(archiveView.init);
+controller.archiveInit = function() {
+  archiveView.init();
 };
 
 controller.journalTemplate = function(ctx, next) {

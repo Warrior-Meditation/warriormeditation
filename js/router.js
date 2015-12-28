@@ -9,12 +9,12 @@ page(
 );
 page(
   '/journal/new',
-  controller.initEditor
+  controller.editorInit
 );
 page(
   '/journal/archive',
   controller.journalTemplate,
-  controller.getJournalEntries
+  controller.archiveInit
 );
 page(
   '/resources',

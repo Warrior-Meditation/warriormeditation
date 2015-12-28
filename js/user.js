@@ -78,7 +78,6 @@ User.recordExists = function () {
       keys.forEach(function(el){
         User[el] = snapObj[el];
       });
-      User.allJournals = JSON.parse(User.journalsString);
     }
     else {
       User.createUserRecord();
@@ -97,10 +96,11 @@ User.createUserRecord = function() {
     mostConsecDays: User.mostConsecDays,
     currConsecDays: User.currConsecDays
   });
+  Journal.storeJournals();
 };
 
 User.setLogin = function(){
-  $('#auth-status').text('Login').removeClass('logout').addClass('login');
+  $('#auth-status').text('Login/Register').removeClass('logout').addClass('login');
   $('.login').on('click', User.login);
 };
 
@@ -112,15 +112,17 @@ User.setLogout = function(){
 User.login = function(event){
   event.preventDefault();
   console.log('Take the user to login screen');
-  User.setLogin();
+  // User.setLogin();
+  // controller.loginInit();
+  page('/login');
 };
 
 User.logout = function(event){
   event.preventDefault();
   console.log('Logging out user!');
   firebase.unauth();
-  User.setLogin();  //Not necessary due to User.alreadyAuthed?
-  // User.alreadyAuthed;
+  User.setLogin();
+  page('/login');
 };
 
 //router should call these
@@ -130,5 +132,5 @@ $('#loginAccount').submit(User.authUser);
 
 
 $(function() {
-  User.alreadyAuthed();  //Tests if user already authenticated
+  User.alreadyAuthed();
 });

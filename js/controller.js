@@ -48,3 +48,9 @@ controller.resourcesInit = function() {
 controller.aboutInit = function() {
   aboutView.init();
 };
+
+//LOGIN/REGISTRATION METHODS
+
+controller.loginInit = function() {
+  loginView.init();
+};

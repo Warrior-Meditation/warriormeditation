@@ -24,4 +24,8 @@ page(
   '/about',
   controller.aboutInit
 );
+page(
+  '/login',
+  controller.loginInit
+);
 page.start();

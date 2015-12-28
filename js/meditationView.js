@@ -62,21 +62,14 @@ meditationView.player = function(url) {
   });
 };
 
-// meditationScoring = function() {
-//   $('#total-days').text(User.ttlDays);
-//   $('#total-time').text(Math.floor(User.ttlTime/3600000));
-//   $('#current-consecutive-days').text(User.currConsecDays);
-//   $('#highest-consecutive-days').text(User.mostConsecDays);
-// };
-
 meditationView.handleFeedback = function() {
   $('#ok-button').on('click', function() {
-    User.newConsecDays();
-    User.ttlMeditations += 1;
-    User.ttlTime += User.currTime;
-    if (User.uid) {
-      User.updateUserRecord();
-    }
+    Meditation.logStats();
     $('#feedback').fadeOut(1000);
+  });
+  $('#journal-button').on('click', function() {
+    Meditation.logStats();
+    $('#feedback').fadeOut(1000);
+    page('/journal/new');
   });
 };

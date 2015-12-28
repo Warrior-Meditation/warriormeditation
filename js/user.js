@@ -6,6 +6,7 @@ User.exists = false;
 User.name = '';
 User.email = '';
 User.allJournals = [];
+User.journalsString = '';
 User.lastDay = '';
 User.currTime = 0;
 User.ttlTime = 0;
@@ -81,6 +82,7 @@ User.recordExists = function () {
       keys.forEach(function(el){
         User[el] = snapObj[el];
       });
+      User.allJournals = JSON.parse(User.journalsString);
     }
     else {
       User.updateUserRecord();

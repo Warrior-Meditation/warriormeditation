@@ -29,3 +29,12 @@ Meditation.match = function(ctx, callback) {
   });
   callback(meditation);
 };
+
+Meditation.logStats = function() {
+  User.newConsecDays();
+  User.ttlMeditations += 1;
+  User.ttlTime += User.currTime;
+  if (User.uid) {
+    User.updateUserRecord();
+  }
+};

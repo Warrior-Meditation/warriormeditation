@@ -7,4 +7,6 @@ resourcesView.init = function() {
   if (User.uid) {
     $('#user-scoring').show();
   }
+  $('.nav > li').removeClass('active');
+  $('#resources').addClass('active');
 };

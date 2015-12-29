@@ -61,8 +61,10 @@ User.authenticate = function (userPassword) {
   }, function(error, authData) {
     if (error) {
       console.log('Login Failed!', error);
+      alert('Login failed! Please try again or create an account');
     } else {
       console.log('Authenticated successfully with payload:', authData);
+      alert('Login successful');
       User.uid = authData.uid;
       User.recordExists(User.setLogout);
     }

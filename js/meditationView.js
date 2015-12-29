@@ -27,7 +27,6 @@ meditationView.player = function(url) {
     client_id: '9586854c0f0c9138735b653b994f0fb5'
   });
 
-  var url = '/tracks/238687124';
   var currentTrack = SC.get(url);
 
   var timeCounter;

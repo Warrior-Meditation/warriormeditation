@@ -64,8 +64,7 @@ User.authenticate = function (userPassword) {
     } else {
       console.log('Authenticated successfully with payload:', authData);
       User.uid = authData.uid;
-      User.setLogout();
-      User.recordExists();
+      User.recordExists(User.setLogout);
     }
   });
 };
@@ -134,6 +133,7 @@ User.setLogin = function(){
   $('#auth-status').text('Login/Register').removeClass('logout').addClass('login');
   $('.login').on('click', User.login);
   $('#archive').hide();
+  indexView.displayStats();
 };
 
 User.setLogout = function(){
@@ -156,7 +156,26 @@ User.logout = function(event){
   console.log('Logging out user!');
   firebase.unauth();
   User.setLogin();
+  User.clear(indexView.displayStats);
   page('/login');
+};
+
+User.clear = function(callback) {
+  User.uid = '';
+  User.exists = false;
+  User.name = '';
+  User.email = '';
+  User.allJournals = [];
+  User.journalsString = '';
+  User.lastDay = '';
+  User.currTime = 0;
+  User.ttlTime = 0;
+  User.ttlDays = 0;
+  User.ttlMeditations = 0;
+  User.mostConsecDays = 0;
+  User.currConsecDays = 0;
+  User.currentMeditation = '';
+  callback;
 };
 
 //router should call these

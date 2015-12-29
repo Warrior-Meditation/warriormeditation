@@ -133,7 +133,6 @@ User.setLogin = function(){
   $('#auth-status').text('Login/Register').removeClass('logout').addClass('login');
   $('.login').on('click', User.login);
   $('#archive').hide();
-  // indexView.displayStats();
 };
 
 User.setLogout = function(){
@@ -154,6 +153,7 @@ User.logout = function(event){
   console.log('Logging out user!');
   firebase.unauth();
   User.setLogin();
+  $('#user-scoring').hide();
   User.clear(indexView.displayStats);
   page('/login');
 };

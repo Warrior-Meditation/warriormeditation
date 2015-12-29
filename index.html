@@ -6,18 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Warrior Meditation</title>
 
-    <!-- THE STRAPPERY -->
-    <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-
-  <!-- Optional theme -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
-
-  <!-- Latest compiled and minified JavaScript -->
-
   <link rel="stylesheet" href="/css/style.css">
 
-<!-- META -->
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="/img/favicon.png">
@@ -33,19 +25,20 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand" href="/">Warrior Meditation</a>
         </div>
         <div id="navbarCollapse" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="/">Home</a></li>
-                <li><a href="/journal/new">NJE</a></li>
-                <li><a href="/journal/archive">Journal Archive</a></li>
-                <li><a href="/resources">Resources</a></li>
-                <li><a href="/about">About</a></li>
+                <li class="active" id="home"><a href="/">Home</a></li>
+                <!-- <li><a href="/journal/new">NJE</a></li> -->
+                <li id="archive"><a href="/journal/archive">Journal Archive</a></li>
+                <li id="resources"><a href="/resources">Resources</a></li>
+                <li id="about"><a href="/about">About</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="/login" id="auth-status">Login/Register</a></li>
+              <li><a href="/login" id="auth-status">Login/Register</a></li>
             </ul>
         </div>
       </div>
@@ -67,36 +60,37 @@
           </div>
         </div>
 
-        <!-- LARGE LOGO - MAKE SMALLER FILE - OR POSTER IMAGE OF REASONS TO MEDITATE -->
-
-
         <div class="container">
           <div class="row">
             <div class="col-md-4">
-              <a href="/meditation/Nada"><h2>Insight Meditation</h2></a>
+              <a href="/meditation/insight"><h2>Insight Meditation</h2></a>
               <p>Insight meditation is meditation in the oldest and most widely practiced form.  The practice of insight meditation involves watching the breath, and watching the thoughts and emotions that arise as you attempt to quiet your mind. As you witness these thoughts and emotions you visualize them being released.  As you release your thoughts and emotions they cease to have any power over your conscious mind.</p>
-              <p><a class="btn btn-default" href="/meditation/Nada" role="button">View details &raquo;</a></p>
+              <p><a class="btn btn-default" href="/meditation/insight" role="button">View details &raquo;</a></p>
             </div>
 
             <div class="col-md-4">
-              <h2>Yoga Nidra Meditation</h2>
+              <a href="/meditation/yoganidra"><h2>Yoga Nidra Meditation</h2></a>
               <p>The practice of Yoga Nidra is a body scanning technique.  The meditator begins by setting an intention for their practice, then watching their breath, and scanning their body.  Emotions and thoughts will arise as you do an internal scan of your body, and each time you recognize a discursive thought or emotion and return to the body scan practice, your ability to deal with discursive thoughts and emotions in your everyday life will be greatly improved.</p>
-              <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+              <p><a class="btn btn-default" href="/meditation/yoganidra" role="button">View details &raquo;</a></p>
             </div>
 
             <div class="col-md-4">
-              <h2>Shapeshifting Meditation</h2>
+              <a href="/meditation/shapeshifting"><h2>Shapeshifting Meditation</h2></a>
               <p>Since the earliest recorded history, Shamanic practices have drawn from the natural world as a source for guidance and inspiration.  The shamanic practice of shapeshifting allows the meditator to identify and align themselves with the characteristics of a "spirit animal" that allows for separation from your identity of self.  It allows you to step outside of yourself as you envision aspects of your mind from the frame of reference of an animal entity.  This separation allows for more compassion and more imagination in dealing with your strengths and weaknesses.  The goal is the realization that the strengths and weaknesses that you perceive in an animal entity are the same strengths and weaknesses that you perceive in yourself, allowing you to appreciate your strengths and begin to eliminate weaknesses.</p>
-              <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+              <p><a class="btn btn-default" href="/meditation/shapeshifting" role="button">View details &raquo;</a></p>
             </div>
           </div>
       </section>
       <section id="meditation-content">
         <div id="current-meditation">
         </div>
+        <div class="btn-group" role="group" aria-label="...">
+          <a href="" id="start"><button type="button" class="btn btn-default">Start</button></a>
+          <a href="" id="stop"><button type="button" class="btn btn-default">Pause</button></a>
+        </div>
         <div id ="feedback">
           <button type="button" id="ok-button">I'm Finished</button>
-          <a id="journal-link" href="/journal/new"><button type="submit" id="journal-button" formmethod="get">I'm Finished. Journal This Meditation</button></a>
+          <button type="button" id="journal-button" formmethod="get">I'm Finished. Journal This Meditation</button>
         </div>
       </section>
       <section id="journal-editor-content">

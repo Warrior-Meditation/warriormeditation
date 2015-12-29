@@ -1,5 +1,6 @@
 var Meditation = function(opts) {
   this.title = opts.title;
+  this.slug = opts.slug;
   this.description = opts.description;
   this.soundUrl = opts.soundUrl;
 };
@@ -23,9 +24,18 @@ Meditation.getJSON = function(callback) {
 Meditation.match = function(ctx, callback) {
   var meditation;
   Meditation.allMeditations.forEach(function(e) {
-    if (e.title == ctx.params.meditation) {
+    if (e.slug == ctx.params.meditation) {
       meditation = e;
     }
   });
   callback(meditation);
+};
+
+Meditation.logStats = function() {
+  User.newConsecDays();
+  User.ttlMeditations += 1;
+  User.ttlTime += User.currTime;
+  if (User.uid) {
+    User.updateUserRecord();
+  }
 };

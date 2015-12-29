@@ -9,6 +9,7 @@ controller.indexInit = function() {
 //MEDITATION PAGE METHODS
 
 controller.fetchMeditations = function(ctx, next) {
+  console.log('fetching meditation');
   Meditation.getJSON(next);
 };
 

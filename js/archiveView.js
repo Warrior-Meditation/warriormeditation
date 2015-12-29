@@ -5,6 +5,8 @@ archiveView.init = function() {
     .empty()
     .show()
     .siblings().hide();
+  $('.nav > li').removeClass('active');
+  $('#archive').addClass('active');
   User.allJournals.forEach(function(entry) {
     $('#journal-archive-content').append(archiveView.toHTML(entry));
   });

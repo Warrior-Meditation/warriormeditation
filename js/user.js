@@ -21,8 +21,7 @@ User.alreadyAuthed = function() {
   if (authData) {
     console.log('User already authenticated with uid:', authData.uid);
     User.uid = authData.uid;
-    User.setLogout();
-    User.recordExists();
+    User.recordExists(User.setLogout);
   }
   else {
     User.setLogin();
@@ -71,7 +70,7 @@ User.authenticate = function (userPassword) {
   });
 };
 
-User.recordExists = function () {
+User.recordExists = function (callback) {
   firebase.child('users').child(User.uid).once('value', function(snapshot) {
     var snap = snapshot;
     User.exists = snap.exists();
@@ -83,6 +82,7 @@ User.recordExists = function () {
         User[el] = snapObj[el];
       });
       User.allJournals = JSON.parse(User.journalsString);
+      callback();
     }
     else {
       User.updateUserRecord();
@@ -130,13 +130,16 @@ User.newConsecDays = function() {
 };
 
 User.setLogin = function(){
+  console.log('2');
   $('#auth-status').text('Login/Register').removeClass('logout').addClass('login');
   $('.login').on('click', User.login);
+  $('#archive').hide();
 };
 
 User.setLogout = function(){
-  $('#auth-status').text('Logout').removeClass('login').addClass('logout');
+  $('#auth-status').text(User.name + ' (Logout)').removeClass('login').addClass('logout');
   $('.logout').on('click', User.logout);
+  $('#archive').show();
 };
 
 User.login = function(event){

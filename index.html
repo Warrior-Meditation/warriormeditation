@@ -41,6 +41,7 @@
                 <li class="active"><a href="/">Home</a></li>
                 <li><a href="/journal/new">NJE</a></li>
                 <li><a href="/journal/archive">Journal Archive</a></li>
+                <li id="stats">Meditation Stats</li>
                 <li><a href="/resources">Resources</a></li>
                 <li><a href="/about">About</a></li>
             </ul>
@@ -52,46 +53,48 @@
     </nav>
 
     <main>
-      <section id="index-content">
-        <div class="jumbotron">
-          <div class="container-fluid">
-            <div class="row">
-              <div class="col-sm-3 hidden-xs">
-                <img src="/img/hamsa-150a.png" class="img-responsive center-block" alt="Warrior meditation logo">
-              </div>
-              <div class="col-sm-9 col-xs-12">
-                <h1>Warrior Meditation</h1>
-                <p>This site is for X, Y, Z. Meditation is very, very, very, very good.</p>
-                <p><a class="btn btn-primary btn-lg" href="/about" role="button">Learn more &raquo;</a></p>
+      <div id="main-content">
+        <section id="index-content">
+          <div class="jumbotron">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-sm-3 hidden-xs">
+                  <img src="/img/hamsa-150a.png" class="img-responsive center-block" alt="Warrior meditation logo">
+                </div>
+                <div class="col-sm-9 col-xs-12">
+                  <h1>Warrior Meditation</h1>
+                  <p>This site is for X, Y, Z. Meditation is very, very, very, very good.</p>
+                  <p><a class="btn btn-primary btn-lg" href="/about" role="button">Learn more &raquo;</a></p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
         <!-- LARGE LOGO - MAKE SMALLER FILE - OR POSTER IMAGE OF REASONS TO MEDITATE -->
 
 
-        <div class="container">
-          <div class="row">
-            <div class="col-md-4">
-              <a href="/meditation/Nada"><h2>Meditation 1</h2></a>
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn btn-default" href="/meditation/Nada" role="button">View details &raquo;</a></p>
-            </div>
+          <div class="container">
+            <div class="row">
+              <div class="col-md-4">
+                <a href="/meditation/Nada"><h2>Meditation 1</h2></a>
+                <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                <p><a class="btn btn-default" href="/meditation/Nada" role="button">View details &raquo;</a></p>
+              </div>
 
-            <div class="col-md-4">
-              <h2>Meditation 2</h2>
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-            </div>
+              <div class="col-md-4">
+                <h2>Meditation 2</h2>
+                <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+              </div>
 
-            <div class="col-md-4">
-              <h2>Meditation 3</h2>
-              <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-              <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+              <div class="col-md-4">
+                <h2>Meditation 3</h2>
+                <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+                <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+              </div>
             </div>
           </div>
-      </section>
+        </section>
       <section id="meditation-content">
         <div id="current-meditation">
         </div>
@@ -114,14 +117,6 @@
         </p>
       </section>
 
-  <!-- USER'S PERSONAL SCORING -->
-      <section id="user-scoring">
-      <p>Here are your meditation stats, warrior! Push on, don't break the chain.</p>
-        <div id="highest-consecutive-days"></div>
-        <div id="current-consecutive-days"></div>
-        <div id="total-hours"></div>
-        <div id="total-days"></div>
-      </section>
 
   <!-- ABOUT THE PROJECT AND CREATORS -->
       <section id="about-content">
@@ -165,6 +160,18 @@
             </fieldset>
           </form>
         </section>
+      </div>
+        <!-- USER'S PERSONAL SCORING -->
+      <section class="popup">
+        <div id="user-scoring">
+          <p>Here are your meditation stats, warrior! Push on, don't break the chain.</p>
+          <div id="highest-consecutive-days"></div>
+          <div id="current-consecutive-days"></div>
+          <div id="total-hours"></div>
+          <div id="total-days"></div>
+        </div>
+      </section>
+
     </main>
 
     <footer>

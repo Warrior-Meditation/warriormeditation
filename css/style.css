@@ -23,7 +23,7 @@ input {
 }
 
 article {
-  padding: 1em 10%;
+  padding: 1em 10% 1em 10%;
 }
 
 .postFooter {

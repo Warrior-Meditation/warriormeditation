@@ -22,7 +22,7 @@ input {
   z-index: 77;
 }
 
-article {
+article, #about-content, #resources-content {
   padding: 1em 10% 1em 10%;
 }
 

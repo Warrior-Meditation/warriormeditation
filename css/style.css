@@ -20,5 +20,12 @@ input {
   align-items: center;
   flex-direction: column;
   z-index: 77;
+}
 
+article {
+  padding: 1em 10%;
+}
+
+.postFooter {
+  padding-top: .5em;
 }

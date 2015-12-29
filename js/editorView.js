@@ -5,6 +5,9 @@ editorView.init = function(ctx) {
   .show()
   .siblings().hide();
   editorView.capture();
+  if (User.uid) {
+    $('#user-scoring').show();
+  }
 };
 
 editorView.capture = function() {

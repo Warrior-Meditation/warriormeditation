@@ -162,8 +162,6 @@ User.logout = function(event){
 $('#createAccount').submit(User.createUser);
 $('#loginAccount').submit(User.authUser);
 
-
-
 $(function() {
   User.alreadyAuthed();
 });

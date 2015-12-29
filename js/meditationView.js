@@ -6,7 +6,6 @@ meditationView.init = function(meditation) {
   meditationView.handleFeedback();
   meditationView.player(meditation.soundUrl);
   User.currentMeditation = meditation.title;
-  //$('#journal-link').attr('href', '/journal/new?category='+ meditation.title);
 };
 
 meditationView.render = function(meditation) {
@@ -19,10 +18,11 @@ meditationView.render = function(meditation) {
     .append([
       '<h1>' + meditation.title + '</h1>',
       '<p>' + meditation.description + '</p>'
-      // '<a href="" id="start">Start</a>',
-      // '<a href="" id="stop">Stop</a>'
     ]
   );
+  if (User.uid) {
+    $('#user-scoring').show();
+  }
 };
 
 meditationView.player = function(url) {
@@ -66,11 +66,26 @@ meditationView.player = function(url) {
 meditationView.handleFeedback = function() {
   $('#ok-button').on('click', function() {
     Meditation.logStats();
+    if (User.uid) {
+      User.updateUserRecord();
+    }
+    meditationView.scoreKeeper();
     $('#feedback').fadeOut(1000);
   });
   $('#journal-button').on('click', function() {
     Meditation.logStats();
-    $('#feedback').fadeOut(1000);
+    if (User.uid) {
+      User.updateUserRecord();
+    }
+    meditationView.scoreKeeper();
     page('/journal/new');
   });
+};
+
+// 3600000 = Milliseconds in an hour
+meditationView.scoreKeeper = function() {
+  $('#total-days').text('Total days: ' + User.ttlDays);
+  $('#total-hours').text('Total hours: ' + Math.floor(User.ttlTime/3600000));
+  $('#current-consecutive-days').text('Current consecutive days: ' + User.currConsecDays);
+  $('#highest-consecutive-days').text('Highest consecutive days: ' + User.mostConsecDays);
 };

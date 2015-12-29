@@ -71,6 +71,7 @@ User.authenticate = function (userPassword) {
 };
 
 User.recordExists = function (callback) {
+  callback = callback || function() {};
   firebase.child('users').child(User.uid).once('value', function(snapshot) {
     var snap = snapshot;
     User.exists = snap.exists();
@@ -130,7 +131,6 @@ User.newConsecDays = function() {
 };
 
 User.setLogin = function(){
-  console.log('2');
   $('#auth-status').text('Login/Register').removeClass('logout').addClass('login');
   $('.login').on('click', User.login);
   $('#archive').hide();
@@ -140,6 +140,7 @@ User.setLogout = function(){
   $('#auth-status').text(User.name + ' (Logout)').removeClass('login').addClass('logout');
   $('.logout').on('click', User.logout);
   $('#archive').show();
+  indexView.displayStats();
 };
 
 User.login = function(event){
@@ -161,7 +162,3 @@ User.logout = function(event){
 //router should call these
 $('#createAccount').submit(User.createUser);
 $('#loginAccount').submit(User.authUser);
-
-$(function() {
-  User.alreadyAuthed();
-});

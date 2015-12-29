@@ -20,9 +20,6 @@ meditationView.render = function(meditation) {
       '<p>' + meditation.description + '</p>'
     ]
   );
-  if (User.uid) {
-    $('#user-scoring').show();
-  }
 };
 
 meditationView.player = function(url) {
@@ -69,7 +66,7 @@ meditationView.handleFeedback = function() {
     if (User.uid) {
       User.updateUserRecord();
     }
-    meditationView.scoreKeeper();
+    indexView.displayStats();
     $('#feedback').fadeOut(1000);
   });
   $('#journal-button').on('click', function() {
@@ -77,15 +74,7 @@ meditationView.handleFeedback = function() {
     if (User.uid) {
       User.updateUserRecord();
     }
-    meditationView.scoreKeeper();
+    indexView.displayStats();
     page('/journal/new');
   });
-};
-
-// 3600000 = Milliseconds in an hour
-meditationView.scoreKeeper = function() {
-  $('#total-days').text('Total days: ' + User.ttlDays);
-  $('#total-hours').text('Total hours: ' + Math.floor(User.ttlTime/3600000));
-  $('#current-consecutive-days').text('Current consecutive days: ' + User.currConsecDays);
-  $('#highest-consecutive-days').text('Highest consecutive days: ' + User.mostConsecDays);
 };

@@ -94,14 +94,23 @@
           <button type="button" id="journal-button" formmethod="get">I'm Finished. Journal This Meditation</button>
         </div>
       </section>
+
       <section id="journal-editor-content">
         <form id="journal-form">
-          <input id="edit-title" type="text" placeholder="title" required/><br>
-          <input id="edit-body" placeholder="body" required/><br>
-          <input type="submit"></input>
-          <a href="/journal/archive"><button type="button">View Journal Archive</button></a>
-        </form>
+          <h1>My Meditation Journal</h2>
+        <div class="form-group">
+          <label for="edit-title">Meditation Title</label>
+          <input id="edit-title" type="text" class="form-control" placeholder="Title" required/>
+        </div>
+        <div class="form-group">
+          <label for="edit-body">Your Journal Entry</label>
+          <textarea id="edit-body" type="text" class="form-control" rows="10" placeholder="Text" required></textarea>
+        </div>
+          <button type="submit" class="btn btn-default">Submit</button><br><br>
+          <a href="/journal/archive"><button type="button" class="btn btn-default">View Journal Archive</button></a>
+      </form>
       </section>
+
   <!-- LIST OF JOURNAL ENTRIES WRITTEN BY USER -->
       <section id="journal-archive-content">
         <p>

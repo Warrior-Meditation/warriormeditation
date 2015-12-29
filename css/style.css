@@ -20,6 +20,14 @@ input {
 
 }
 
+article, #about-content, #resources-content {
+  padding: 1em 10% 1em 10%;
+}
+
+.postFooter {
+  padding-top: .5em;
+}
+
 footer {
   position: absolute;
   bottom: 0;

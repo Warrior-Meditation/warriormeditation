@@ -12,13 +12,9 @@ indexView.displayStats = function() {
   if (User.uid) {
     console.log('show');
     $('#user-scoring').show();
-    $('#total-days').text('Total days: ' + User.ttlDays);
-    $('#total-hours').text('Total hours: ' + Math.floor(User.ttlTime/3600000));
-    $('#current-consecutive-days').text('Current consecutive days: ' + User.currConsecDays);
-    $('#highest-consecutive-days').text('Highest consecutive days: ' + User.mostConsecDays);
   }
-  } else {
-    console.log('hide');
-    $('#user-scoring').hide();
-  }
+  $('#total-days').text('Total days: ' + User.ttlDays);
+  $('#total-hours').text('Total hours: ' + Math.floor(User.ttlTime/3600000));
+  $('#current-consecutive-days').text('Current consecutive days: ' + User.currConsecDays);
+  $('#highest-consecutive-days').text('Highest consecutive days: ' + User.mostConsecDays);
 };

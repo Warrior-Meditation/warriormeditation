@@ -15,12 +15,7 @@ main {
   display: none;
 }
 
-input {
-  margin: 10px;
-
-}
-
-article, #about-content, #resources-content {
+article, #about-content, #resources-content, #journal-archive-content, #journal-editor-content {
   padding: 1em 10% 1em 10%;
 }
 

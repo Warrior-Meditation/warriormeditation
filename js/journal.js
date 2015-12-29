@@ -10,7 +10,19 @@ Journal.retrieveJournals = function() {
     var snap = snapshot;
     User.allJournals = JSON.parse(snap);
   });
+  Journal.sortJournals();
 };
+
+Journal.sortJournals = function() {
+  User.allJournals.sort(function(a, b){
+    var dateA = a.publishedOn;
+    var dateB = b.publishedOn;
+    if (dateA > dateB) return -1;
+    if (dateA < dateB) return 1;
+    return 0;
+  });
+};
+
 
 Journal.storeJournals = function() {
   journalsString = JSON.stringify(User.allJournals);

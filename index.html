@@ -28,10 +28,10 @@
         </div>
         <div id="navbarCollapse" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="/">Home</a></li>
-                <li><a href="/journal/archive">Journal Archive</a></li>
-                <li><a href="/resources">Resources</a></li>
-                <li><a href="/about">About</a></li>
+                <li class="active"><a href="/" id="home">Home</a></li>
+                <li><a href="/journal/archive" id="archive">Journal Archive</a></li>
+                <li><a href="/resources" id="resources">Resources</a></li>
+                <li><a href="/about" id="about">About</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
               <li><a href="/login" id="auth-status">Login/Register</a></li>
@@ -91,7 +91,7 @@
         </div>
       </section>
 
-      <section id="journal-editor-content">
+      <section id="journal-editor-content" class="container">
         <form id="journal-form">
           <h1>My Meditation Journal</h2>
         <div class="form-group">
@@ -102,7 +102,7 @@
           <label for="edit-body">Your Journal Entry</label>
           <textarea id="edit-body" type="text" class="form-control" rows="10" placeholder="Text" required></textarea>
         </div>
-          <button type="submit" class="btn btn-default">Submit</button><br><br>
+          <button type="submit" class="btn btn-default">Submit</button>
           <a href="/journal/archive"><button type="button" class="btn btn-default">View Journal Archive</button></a>
       </form>
       </section>
@@ -126,7 +126,7 @@
           <p>Spiritual and wisdom traditions worldwide agree that you will gain the most benefit
           by using metaphors that inspire compassion and love for all sentient beings, but this can be done with a broad spectrum of techniques ranging from sitting quietly and watching your breath, following a sound, or imagining spirit animals.</p>
           <p>This website will give you an introduction to some basic metaphors and patterns of thought on which to rest your mind and point yourself in the direction of your own inner space and strength.</p>
-        <h2>About the team</h2>
+        <!-- <h2>About the team</h2> -->
       </section>
 
   <!-- RESOURCES FOR USER -->
@@ -141,10 +141,10 @@
       </section>
 
     <!-- LOGIN AND REGISTRAION -->
-        <section id="login-content">
-          <p>This is the login/registration</p>
+        <section id="login-content" class="container">
+          <h1>Create an account or login</h1>
           <form action="#" id="createAccount">
-            <fieldset>
+            <fieldset class="form-group" class="col-sm-9 col-xs-12">
               <legend>Create an Account</legend>
               <label for="fullName">Name:
                 <input id="formName" type="text" name="fullName" placeholder="Joe Blow" required>
@@ -160,7 +160,7 @@
           </form>
 
           <form action="#" id="loginAccount">
-            <fieldset>
+            <fieldset class="form-group">
               <legend>Login</legend>
               <label for="email">Email address:
                 <input id="loginEmail" type="email" name="email" placeholder="joe@nowhere.com" required>

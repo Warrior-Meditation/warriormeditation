@@ -31,3 +31,7 @@ footer {
   background-color: #eee;
   padding: 5px;
 }
+
+#user-scoring {
+  display: none;
+}

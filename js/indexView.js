@@ -9,8 +9,8 @@ indexView.init = function () {
 };
 
 indexView.displayStats = function() {
-  console.log('bang');
   if (User.uid) {
+    console.log('show');
     $('#user-scoring').show();
   }
   $('#total-days').text('Total days: ' + User.ttlDays);

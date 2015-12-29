@@ -6,14 +6,15 @@ indexView.init = function () {
     .siblings().hide();
   $('.nav > li').removeClass('active');
   $('#home').addClass('active');
-  if (User.uid) {
-    $('#user-scoring').show();
-  }
-  indexView.displayStats();
 };
 
 indexView.displayStats = function() {
-  $('#stats').on('click', function() {
-    $('.popup').show();
-  });
+  console.log('bang');
+  if (User.uid) {
+    $('#user-scoring').show();
+  }
+  $('#total-days').text('Total days: ' + User.ttlDays);
+  $('#total-hours').text('Total hours: ' + Math.floor(User.ttlTime/3600000));
+  $('#current-consecutive-days').text('Current consecutive days: ' + User.currConsecDays);
+  $('#highest-consecutive-days').text('Highest consecutive days: ' + User.mostConsecDays);
 };

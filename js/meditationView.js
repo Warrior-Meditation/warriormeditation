@@ -40,6 +40,7 @@ meditationView.player = function(url) {
       User.currTime = 0;
       console.log('start');
       console.log(player);
+      $('#feedback').fadeOut(1000);
       player.play();
     });
 
@@ -48,6 +49,7 @@ meditationView.player = function(url) {
       console.log('stop');
       timeCounter = player.currentTime();  //milliseconds
       console.log(timeCounter);
+      $('#feedback').fadeIn(1000);
       player.pause();
     });
 

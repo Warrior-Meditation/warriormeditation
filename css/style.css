@@ -9,12 +9,6 @@ main {
   padding-bottom: 20px;
 }
 
-#feedback {
-  border: 1px solid black;
-  padding: 1em;
-  display: none;
-}
-
 article, #about-content, #resources-content, #journal-archive-content, #journal-editor-content {
   padding: 1em 10% 1em 10%;
 }
@@ -34,4 +28,24 @@ footer {
 
 #user-scoring {
   display: none;
+}
+
+#meditation-wrap {
+  margin-left: 1em;
+  margin-right: 1em;
+  margin-top: 1em;
+  padding: 1em;
+}
+
+#feedback {
+  padding: 1em;
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  #meditation-wrap {
+    margin-left: 2em;
+    border: 1px solid black;
+    border-radius: 5px;
+  }
 }

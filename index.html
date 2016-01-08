@@ -78,16 +78,19 @@
             </div>
           </div>
         </section>
-      <section id="meditation-content">
-        <div id="current-meditation">
-        </div>
-        <div class="btn-group" role="group" aria-label="...">
-          <a href="" id="start"><button type="button" class="btn btn-default">Start</button></a>
-          <a href="" id="stop"><button type="button" class="btn btn-default">Pause</button></a>
-        </div>
-        <div id ="feedback">
-          <button type="button" id="ok-button">I'm Finished</button>
-          <button type="button" id="journal-button" formmethod="get">I'm Finished. Journal This Meditation</button>
+      <section id="meditation-content" class="row">
+        <div id="meditation-wrap" class="col-sm-6">
+          <div id="current-meditation">
+          </div>
+          <div class="btn-group" role="group" aria-label="...">
+            <p>Press start to begin this meditation. Press pause to stop the meditation and access your journal.</p>
+            <a href="" id="start"><button type="button" class="btn btn-default">Start</button></a>
+            <a href="" id="stop"><button type="button" class="btn btn-default">Pause</button></a>
+          </div>
+          <div id ="feedback">
+            <button type="button" id="ok-button" class="btn btn-default">I'm Finished</button>
+            <button type="button" id="journal-button" class="btn btn-default" formmethod="get">I'm Finished. Journal This Meditation</button>
+          </div>
         </div>
       </section>
 

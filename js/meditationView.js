@@ -16,7 +16,7 @@ meditationView.render = function(meditation) {
   $('#current-meditation')
     .empty()
     .append([
-      '<h1>' + meditation.title + '</h1>',
+      '<h1 class="med-title">' + meditation.title + '</h1>',
       '<p>' + meditation.description + '</p>'
     ]
   );

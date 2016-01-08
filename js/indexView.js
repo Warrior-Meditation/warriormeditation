@@ -18,3 +18,14 @@ indexView.displayStats = function() {
   $('#current-consecutive-days').text('Current consecutive days: ' + User.currConsecDays);
   $('#highest-consecutive-days').text('Highest consecutive days: ' + User.mostConsecDays);
 };
+
+indexView.navCollapse = function () {
+  $('#navbarCollapse ul li').click(function() {
+    $('.navbar-collapse').collapse('hide');
+  });
+};
+
+$(function() {
+  User.alreadyAuthed();
+  indexView.navCollapse();
+});

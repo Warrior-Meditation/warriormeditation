@@ -1,7 +1,3 @@
-$(function() {
-  User.alreadyAuthed();
-});
-
 page(
   '/',
   controller.indexInit

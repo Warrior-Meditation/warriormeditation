@@ -5,13 +5,13 @@ var Journal = function(props) {
   this.publishedOn = props.publishedOn;
 };
 
-Journal.retrieveJournals = function() {
-  firebase.child('users').child(User.uid).child('journalsString').once('value', function(snapshot) {
-    var snap = snapshot;
-    User.allJournals = JSON.parse(snap);
-  });
-  Journal.sortJournals();
-};
+// Journal.retrieveJournals = function() {
+//   firebase.child('users').child(User.uid).child('journalsString').once('value', function(snapshot) {
+//     var snap = snapshot;
+//     User.allJournals = JSON.parse(snap);
+//   });
+//   Journal.sortJournals();
+// };
 
 Journal.sortJournals = function() {
   User.allJournals.sort(function(a, b){
@@ -22,7 +22,6 @@ Journal.sortJournals = function() {
     return 0;
   });
 };
-
 
 Journal.storeJournals = function() {
   journalsString = JSON.stringify(User.allJournals);

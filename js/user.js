@@ -84,6 +84,7 @@ User.recordExists = function (callback) {
         User[el] = snapObj[el];
       });
       User.allJournals = JSON.parse(User.journalsString);
+      Journal.sortJournals();
       callback();
     }
     else {
